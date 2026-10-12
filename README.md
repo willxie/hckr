@@ -1,4 +1,4 @@
-# Personal HN Reader
+# hrnw
 
 A personal Hacker News reading list inspired by [hckr news](https://hckrnews.com/), originally created by Wayne Larsen. Intended for personal use and independently maintained. See the [feature parity audit](FEATURES.md) for the comparison and verification.
 
