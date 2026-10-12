@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Save the public hckr news feed as JSON for a static GitHub Pages site."""
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -21,7 +21,7 @@ class FeedParser(HTMLParser):
         attrs = dict(attrs)
         classes = attrs.get('class', '').split()
         if tag == 'li' and 'entry' in classes:
-            self.story = {'id': int(attrs['id']), 'title': '', 'score': 0,
+            self.story = {'id': int(attrs['id']) if attrs['id'].isdigit() else attrs['id'], 'title': '', 'score': 0,
                           'descendants': 0, 'homepage': False}
         if self.story is None:
             return
@@ -61,9 +61,31 @@ class FeedParser(HTMLParser):
             self.capture = None
         if tag == 'li' and self.story is not None:
             self.story['title'] = self.story['title'].strip()
-            if self.story['title'] and self.story.get('time') and not self.story.get('dead'):
+            if self.story.get('dead') and self.story['title'] in ('', 'undefined'):
+                self.story['title'] = 'Removed story'
+            if self.story['title'] and self.story.get('time'):
                 self.stories.append(self.story)
             self.story = None
+
+def archive_story(item):
+    try:
+        story_id = str(item['id'])
+        timestamp = int(item['date'])
+        if not (story_id.isdigit() or (len(story_id) == 40 and all(c in '0123456789abcdef' for c in story_id))):
+            return None
+        dead = item.get('dead') not in (None, False, 'false', 'null', '')
+        title = str(item.get('link_text') or '').strip()
+        if title == 'undefined' or not title:
+            title = 'Removed story' if dead else 'Untitled story'
+        return {
+            'id': int(story_id) if story_id.isdigit() else story_id,
+            'time': timestamp, 'title': title, 'url': item.get('link') or '',
+            'score': max(0, int(item.get('points') or 0)),
+            'descendants': None if item.get('comments') is None else max(0, int(item['comments'])),
+            'homepage': False, 'dead': dead, 'type': item.get('type', 'story'),
+        }
+    except (KeyError, TypeError, ValueError):
+        return None
 
 def update():
     request = Request('https://hckrnews.com/', headers={
@@ -76,10 +98,11 @@ def update():
         raise RuntimeError('Source returned too few stories; preserving the saved feed.')
     old = json.loads(FEED.read_text()) if FEED.exists() else {'stories': []}
     now = datetime.now(timezone.utc)
-    cutoff = (now - timedelta(days=30)).timestamp()
-    merged = {s['id']: {**s, 'homepage': False} for s in old['stories'] if s['time'] >= cutoff}
-    merged.update({s['id']: s for s in parser.stories})
-    result = {'updatedAt': now.isoformat(), 'stories': sorted(merged.values(), key=lambda s: (s['time'], s['id']), reverse=True)}
+    # Daily files retain older history; keep only the source's active window here.
+    cutoff = min(s['time'] for s in parser.stories)
+    merged = {s['id']: s for s in parser.stories}
+    merged.update({s['id']: {**s, 'homepage': False} for s in old['stories'] if s['time'] >= cutoff and s['id'] not in merged})
+    result = {'updatedAt': now.isoformat(), 'stories': sorted(merged.values(), key=lambda s: s['time'], reverse=True)}
     FEED.parent.mkdir(parents=True, exist_ok=True)
     temporary = FEED.with_suffix('.tmp')
     temporary.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')

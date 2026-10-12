@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hacker News in chronological order, with a comfortable dark mode. An independent recreation of hckr news.">
+  <meta name="color-scheme" content="dark light">
+  <title>About · hckr news</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    try {
+      const preferences = JSON.parse(localStorage.getItem('hckr-preferences'));
+      const theme = preferences?.defaultsVersion === 2 ? localStorage.getItem('hckr-theme') : 'system';
+      document.documentElement.dataset.theme = ['dark', 'light', 'system'].includes(theme) ? theme : 'system';
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script src="theme.mjs?v=3" type="module"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+      <div class="logo">
+        <h1><a href="./">hckr news</a></h1>
+        <p>an unofficial alternative <a href="https://hackerweb.app/">hacker news</a> interface.</p>
+      </div>
+      <nav class="mainnav" aria-label="Main navigation">
+        <button id="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode"><svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span id="theme-label">light mode</span></button>
+        <a href="./#settings">settings</a>
+        <a href="about.html">about</a>
+        <a class="extensions" href="about.html#extensions">browser extensions</a>
+      </nav>
+    </header>
+    <main class="about-content">
+      <h2>About hckr news</h2>
+      <p>A chronological list of stories that appeared on the Hacker News homepage, inspired by <a href="https://hckrnews.com/">Wayne Larsen’s hckr news</a>. Catch up on what you missed without losing stories as they fall off the front page.</p>
+      <section id="filters">
+        <h2>Short on time?</h2>
+        <p>Use top 10, top 20, or top 50% to find the highest-scoring stories. Like the original, rankings use UTC days, scale to the elapsed portion of each day, and include stories tied at the cutoff. Stories always remain in chronological order. Homepage shows the current front page; all shows every collected entry.</p>
+        <p>On a phone, tap the Filter button to reveal the options. Top 50% is the default.</p>
+      </section>
+      <section id="new">
+        <h2>Refreshing constantly?</h2>
+        <p>The Last Visit line marks the boundary between new stories and stories available on your previous visit. Click it to dismiss it. It appears with all and top 50%; the other filters hide time and visit markers.</p>
+        <p>Enable auto-refresh to check every five minutes while the tab is visible. New stories wait behind a “new entries” button, and the tab title shows their count. Click the button when you’re ready to read them. Manual refresh shows them immediately.</p>
+      </section>
+      <section id="history">
+        <h2>Missed a few days?</h2>
+        <p>Scroll to the bottom to load the preceding day automatically, or use load previous days. You can also select a date to jump directly into the archive and share that date’s URL. Use back to current news to return.</p>
+        <p>The daily archive mirrors the original’s available history beginning in June 2010. Current stories are updated on GitHub Pages every 30 minutes; GitHub may delay scheduled runs. Refresh fetches live points, comments, and homepage membership from the official Hacker News API.</p>
+      </section>
+      <section id="appearance">
+        <h2>Your reading preferences</h2>
+        <p>The system theme follows your device’s light/dark setting. You can choose light or dark in settings, or use the header toggle. Settings also control HackerWeb discussion links, opening links in a new tab, showing dead stories, and new-comment highlights. Your choices stay in this browser.</p>
+        <p>External story titles open the original article. Comments and discussion-only titles open <a href="https://hackerweb.app/">HackerWeb</a> by default; disable that preference to use Hacker News.</p>
+      </section>
+      <section id="extensions">
+        <h2>Browser extensions and comment tracking</h2>
+        <p>New-comment highlighting is built into this version. When you open a discussion, its current comment count is remembered. On a later visit or refresh, the comments column shows new / total, with the new count highlighted. Opening an article alone does not mark the discussion as read.</p>
+        <p>HackerWeb provides collapsible comment threads on the discussion page. The original project’s Chrome and Safari extensions are listed on <a href="https://hckrnews.com/about.html#extensions">the original extensions page</a>; their original-domain integration is separate from this site.</p>
+      </section>
+      <section id="contact">
+        <h2>Source and feedback</h2>
+        <p><a href="https://github.com/willxie/hckr">View this project on GitHub</a> or <a href="https://github.com/willxie/hckr/issues">report an issue</a>. Read about the original project and its author on <a href="https://hckrnews.com/about.html#contact">hckr news</a>.</p>
+        <p>This site is independent of hckr news, HackerWeb, and Y Combinator.</p>
+      </section>
+    </main>
+    <footer><a href="./">back to news</a> · inspired by <a href="https://hckrnews.com/">hckr news</a></footer>
+</div>
+</body>
+</html>

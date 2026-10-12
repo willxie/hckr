@@ -14,8 +14,8 @@
       document.documentElement.dataset.theme = ['dark', 'light', 'system'].includes(theme) ? theme : 'system';
     } catch (_) {}
   </script>
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script src="app.js?v=3" type="module"></script>
 </head>
 <body>
   <div class="container">
@@ -27,37 +27,45 @@
       <nav class="mainnav" aria-label="Main navigation">
         <button id="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode"><svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span id="theme-label">light mode</span></button>
         <button id="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">settings</button>
-        <button id="about-toggle" type="button" aria-expanded="false" aria-controls="about">about</button>
-        <a class="extensions" href="https://hckrnews.com/about.html#extensions">browser extensions</a>
+        <a href="about.html">about</a>
+        <a class="extensions" href="about.html#extensions">browser extensions</a>
       </nav>
     </header>
     <section id="settings" class="panel" aria-label="Settings" hidden>
       <label>Appearance <select id="theme-select"><option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option></select></label>
       <label><input id="auto-refresh" type="checkbox"> Refresh automatically every 5 minutes</label>
       <label><input id="new-tab" type="checkbox"> Open stories in a new tab</label>
+      <label><input id="hackerweb" type="checkbox"> Link discussions to HackerWeb</label>
+      <label><input id="show-dead" type="checkbox"> Show dead stories</label>
+      <label><input id="new-comments" type="checkbox"> Highlight new comments in visited discussions</label>
       <p>Your preferences are saved in this browser.</p>
+      <button id="settings-done" class="done" type="button">Done</button>
     </section>
-    <section id="about" class="panel" aria-label="About this site" hidden>
-      <h2>Hacker News, in order.</h2>
-      <p>An independent recreation of <a href="https://hckrnews.com/">hckr news</a>, originally created by Wayne Larsen, with dark mode. Stories are listed by when they appeared on the original feed. Orange points mark stories currently on the HN homepage.</p>
-      <p>The feed is updated every 30 minutes. Refresh fetches current points and comments from the <a href="https://github.com/HackerNews/API">official Hacker News API</a>. Top filters select the highest-scoring stories for each day, keeping them in chronological order.</p>
-      <p>Appearance follows your system setting by default, and top 50% is selected initially. Discussions open in <a href="https://hackerweb.app/">HackerWeb</a>.</p>
-      <p><a href="https://github.com/willxie/hckr">Source on GitHub</a> · <a href="https://hckrnews.com/about.html#extensions">Original browser extensions</a></p>
-    </section>
-    <div class="refresh-line"><button id="refresh-toggle" type="button">auto-refresh disabled</button><span class="refresh-meta"><span id="updated"></span><button id="refresh" type="button">refresh</button></span></div>
+    <div class="refresh-line"><button id="show-new" type="button" hidden></button><button id="refresh-toggle" type="button">auto-refresh disabled</button><span class="refresh-meta"><span id="updated"></span><button id="refresh" type="button">refresh</button></span></div>
     <div class="menu">
       <div class="column-labels" aria-hidden="true"><span>comments</span><span>points</span></div>
-      <nav class="filters" aria-label="Filter stories">
+      <div class="filter-controls">
+      <button id="mobile-filter-toggle" type="button" aria-expanded="false" aria-controls="filter-options">Filter: <span id="mobile-filter-label">top 50%</span></button>
+      <nav id="filter-options" class="filters" aria-label="Filter stories">
         <button type="button" data-filter="10" aria-pressed="false">top 10</button>
         <button type="button" data-filter="20" aria-pressed="false">top 20</button>
         <button type="button" data-filter="half" aria-pressed="true" class="active">top 50%</button>
         <button type="button" data-filter="homepage" aria-pressed="false">homepage</button>
         <button type="button" data-filter="all" aria-pressed="false">all</button>
       </nav>
+      </div>
     </div>
     <div id="status" role="status" aria-live="polite">Loading stories…</div>
     <main id="entries" aria-label="Hacker News stories" aria-busy="true"></main>
-    <div class="load-more"><button id="load-more" type="button" hidden>load previous days</button></div>
+    <p id="empty" hidden></p>
+    <div class="load-more">
+      <button id="load-more" type="button" hidden>load previous days</button>
+      <div id="history-sentinel" aria-hidden="true"></div>
+      <form id="history-jump" hidden><label for="history-date">Go to date</label><input id="history-date" type="date" required><button id="view-date" type="submit">View</button></form>
+      <span id="archive-note"></span><button id="back-current" type="button" hidden>back to current news</button>
+      <p id="history-end"></p>
+      <p id="history-status" role="status" aria-live="polite"></p>
+    </div>
     <footer>inspired by <a href="https://hckrnews.com/">hckr news</a> · powered by <a href="https://news.ycombinator.com/">Hacker News</a></footer>
     <noscript><p>Please enable JavaScript to load the news feed and switch themes.</p></noscript>
   </div>

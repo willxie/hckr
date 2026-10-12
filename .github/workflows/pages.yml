@@ -20,13 +20,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Verify feed logic
+        run: |
+          node --test tests/core.test.mjs
+          python3 -m unittest discover -s scripts -p 'test_*.py'
       - name: Update the feed
-        run: python3 scripts/update_feed.py
+        run: |
+          python3 scripts/update_feed.py
+          python3 scripts/mirror_archive.py --start "$(date -u -d '4 days ago' +%F)"
       - name: Preserve the news archive
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/news.json
+          git add data/
           if ! git diff --staged --quiet; then
             git commit -m 'Update news feed [skip ci]'
             git push
@@ -35,8 +41,8 @@ jobs:
       - name: Prepare the static site
         run: |
           mkdir -p _site/data
-          cp index.html styles.css app.js favicon.svg _site/
-          cp data/news.json _site/data/
+          cp index.html about.html styles.css app.js core.mjs theme.mjs favicon.svg _site/
+          cp -R data/. _site/data/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
