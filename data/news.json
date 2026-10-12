@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-12T17:16:05.031221+00:00",
+  "updatedAt": "2026-10-12T17:17:06.870660+00:00",
   "stories": [
     {
       "id": 50058850,
       "title": "Reverse engineer anything with agents, from app behavior down to native binaries",
-      "score": 4,
+      "score": 5,
       "descendants": 0,
       "homepage": true,
       "time": 1791825306,
@@ -31,8 +31,8 @@
     {
       "id": 50059115,
       "title": "Muse Wonder",
-      "score": 47,
-      "descendants": 8,
+      "score": 51,
+      "descendants": 11,
       "homepage": true,
       "time": 1791824414,
       "url": "https://research.meta.ai/blog/muse-wonder"
@@ -40,7 +40,7 @@
     {
       "id": 50057384,
       "title": "Hackers heat French supermarket fridges, sparking fires and food losses",
-      "score": 22,
+      "score": 24,
       "descendants": 3,
       "homepage": true,
       "time": 1791823628,
@@ -49,7 +49,7 @@
     {
       "id": 50058528,
       "title": "A Modern Web App in C",
-      "score": 49,
+      "score": 51,
       "descendants": 22,
       "homepage": true,
       "time": 1791823166,
@@ -67,7 +67,7 @@
     {
       "id": 50055593,
       "title": "Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver",
-      "score": 40,
+      "score": 41,
       "descendants": 8,
       "homepage": true,
       "time": 1791822466,
@@ -76,8 +76,8 @@
     {
       "id": 50058507,
       "title": "GLM-Legal: Advancing Agentic Legal Intelligence",
-      "score": 112,
-      "descendants": 64,
+      "score": 114,
+      "descendants": 66,
       "homepage": true,
       "time": 1791821841,
       "url": "https://z.ai/blog/glm-legal"
@@ -85,7 +85,7 @@
     {
       "id": 50057551,
       "title": "Fridges in French supermarkets hit by cyber attack",
-      "score": 42,
+      "score": 43,
       "descendants": 18,
       "homepage": true,
       "time": 1791821678,
@@ -94,8 +94,8 @@
     {
       "id": 50057956,
       "title": "French supermarkets suffer fridge shutdown after 'unprecedented' cyberattack",
-      "score": 119,
-      "descendants": 77,
+      "score": 120,
+      "descendants": 79,
       "homepage": true,
       "time": 1791820655,
       "url": "https://uk.finance.yahoo.com/news/french-supermarket-chains-cyberattack-forced-115141288.html"
@@ -121,7 +121,7 @@
     {
       "id": 50052638,
       "title": "I Found a $90k Remote Code Execution Vulnerability in Google",
-      "score": 71,
+      "score": 73,
       "descendants": 35,
       "homepage": true,
       "time": 1791818006,
@@ -130,7 +130,7 @@
     {
       "id": 50054474,
       "title": "Living in the Weimar Era of Ruby",
-      "score": 58,
+      "score": 59,
       "descendants": 18,
       "homepage": true,
       "time": 1791817835,
@@ -157,7 +157,7 @@
     {
       "id": 50057278,
       "title": "Why aren't AI companies being charged for hacking?",
-      "score": 264,
+      "score": 265,
       "descendants": 256,
       "homepage": false,
       "time": 1791816800,
@@ -222,7 +222,7 @@
       "id": 50055304,
       "title": "Hackers activate automatic defrosting accross European supermarket fridges",
       "score": 98,
-      "descendants": 112,
+      "descendants": 113,
       "homepage": false,
       "time": 1791807746,
       "url": "https://www.tomshardware.com/tech-industry/cyber-security/unprecedented-cyberattack-cripples-supermarket-fridges-across-europe-as-hackers-activate-automatic-defrosting-delivery-and-store-prices-also-impacted-by-incident"
@@ -239,7 +239,7 @@
     {
       "id": 50036287,
       "title": "The Making Of Super Mario 64 – full Giles Goddard interview (2001)",
-      "score": 151,
+      "score": 152,
       "descendants": 56,
       "homepage": true,
       "time": 1791806263,
@@ -247,9 +247,9 @@
     },
     {
       "id": 50054751,
-      "title": "QGIS bans AI assisted contributions",
-      "score": 328,
-      "descendants": 353,
+      "title": "QGIS enacts moratorium on AI assisted contributions",
+      "score": 329,
+      "descendants": 354,
       "homepage": true,
       "time": 1791804324,
       "url": "https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387"
@@ -257,7 +257,7 @@
     {
       "id": 50037711,
       "title": "Secret of Orange Cats Revealed After 60-Year Search",
-      "score": 149,
+      "score": 150,
       "descendants": 128,
       "homepage": true,
       "time": 1791802616,
@@ -303,7 +303,7 @@
       "id": 50053216,
       "title": "Fable Took My Job",
       "score": 213,
-      "descendants": 320,
+      "descendants": 321,
       "homepage": false,
       "time": 1791796451,
       "url": "https://cendyne.dev/posts/2026-10-11-fable-took-my-jorb.html"
@@ -627,7 +627,7 @@
     {
       "id": 50049302,
       "title": "Governments are mishandling the affordability crisis",
-      "score": 100,
+      "score": 101,
       "descendants": 113,
       "homepage": false,
       "time": 1791763649,
@@ -645,8 +645,8 @@
     {
       "id": 50039291,
       "title": "Ask HN: Do you want a router that has DD-WRT pre-installed?",
-      "score": 112,
-      "descendants": 121,
+      "score": 113,
+      "descendants": 122,
       "homepage": true,
       "time": 1791762702,
       "url": "https://news.ycombinator.com/item?id=50039291"
@@ -672,8 +672,8 @@
     {
       "id": 50048642,
       "title": "Fingerprints are the new cookies",
-      "score": 613,
-      "descendants": 296,
+      "score": 615,
+      "descendants": 297,
       "homepage": true,
       "time": 1791760500,
       "url": "https://royfish.dev/fingerprints-are-the-new-cookies"
@@ -727,7 +727,7 @@
     {
       "id": 50048312,
       "title": "Passkeys are a trap",
-      "score": 936,
+      "score": 937,
       "descendants": 486,
       "homepage": false,
       "time": 1791756304,
@@ -754,7 +754,7 @@
     {
       "id": 50047825,
       "title": "A Remote Employee Refused 160 Webcam Photos a Day. Her Employer Fired Her",
-      "score": 259,
+      "score": 260,
       "descendants": 184,
       "homepage": false,
       "time": 1791753973,
@@ -763,8 +763,8 @@
     {
       "id": 50047422,
       "title": "The gap in shared understanding of LLM capability is widening",
-      "score": 615,
-      "descendants": 887,
+      "score": 617,
+      "descendants": 889,
       "homepage": false,
       "time": 1791753539,
       "url": "https://twitter.com/karpathy/status/2109361546505966046"
@@ -826,7 +826,7 @@
     {
       "id": 50047055,
       "title": "So, you’d like to sell your print issues of The Onion?",
-      "score": 366,
+      "score": 367,
       "descendants": 57,
       "homepage": false,
       "time": 1791748059,
@@ -1217,7 +1217,7 @@
     {
       "id": 50041682,
       "title": "Nitter: Update Oct 10th seeking funding and legal help",
-      "score": 464,
+      "score": 465,
       "descendants": 246,
       "homepage": false,
       "time": 1791715674,
