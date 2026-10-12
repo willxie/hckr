@@ -45,6 +45,9 @@ export function discussionUrl(id, hackerWeb=true) {
   if (!/^\d+$/.test(String(id))) return null;
   return hackerWeb ? `https://hackerweb.app/#/item/${id}` : `https://news.ycombinator.com/item?id=${id}`;
 }
+export function commentsUrl(id) {
+  return /^\d+$/.test(String(id)) && Number.isSafeInteger(Number(id)) && Number(id)>0 ? `comments.html?id=${id}` : null;
+}
 export function articleUrl(value, id, hackerWeb=true) {
   const fallback=discussionUrl(id,hackerWeb);
   try {

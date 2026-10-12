@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify feed logic
         run: |
-          node --test tests/core.test.mjs
+          node --test tests/*.test.mjs
           python3 -m unittest discover -s scripts -p 'test_*.py'
       - name: Update the feed
         run: |
@@ -41,7 +41,7 @@ jobs:
       - name: Prepare the static site
         run: |
           mkdir -p _site/data
-          cp index.html about.html styles.css app.js core.mjs theme.mjs favicon.svg _site/
+          cp index.html about.html styles.css app.js core.mjs theme.mjs comments.html comments.js comments-api.mjs comment-html.mjs favicon.svg _site/
           cp -R data/. _site/data/
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,5 +1,5 @@
-import {normalize, utcDay, localDay, chronologic, selectStories, discussionUrl, articleUrl, mergeStories, newCommentCount, decodeTitle} from './core.mjs?v=3';
-import {store, preferences, savePreferences} from './theme.mjs?v=3';
+import {normalize, utcDay, localDay, chronologic, selectStories, discussionUrl, commentsUrl, articleUrl, mergeStories, newCommentCount, decodeTitle} from './core.mjs?v=4';
+import {store, preferences, savePreferences} from './theme.mjs?v=4';
 
 const $=selector=>document.querySelector(selector);
 const API='https://hacker-news.firebaseio.com/v0/';
@@ -10,6 +10,16 @@ let visitBoundary=Number(store.get('hckr-last-visit',0)) || 0, visitRecorded=vis
 const savedRead=store.get('hckr-read',{});
 const read=savedRead && typeof savedRead==='object' && !Array.isArray(savedRead) ? savedRead : {};
 const filterNames={all:'all','10':'top 10','20':'top 20',half:'top 50%',homepage:'homepage'};
+function syncRead() {
+  const saved=store.get('hckr-read',{});
+  if (!saved || typeof saved!=='object' || Array.isArray(saved)) return;
+  for (const key of Object.keys(read)) delete read[key];
+  Object.assign(read,saved);
+  if (!busy) render({preserveScroll:true});
+}
+window.addEventListener('pageshow',event=>{ if (event.persisted) syncRead(); });
+window.addEventListener('storage',event=>{ if (event.key==='hckr-read') syncRead(); });
+document.addEventListener('visibilitychange',()=>{ if (!document.hidden) syncRead(); });
 function status(message='') { $('#status').textContent=message; }
 function historyStatus(message='') { $('#history-status').textContent=message; }
 function rememberVisit() { visitRecorded=Math.floor(Date.now()/1000); store.set('hckr-last-visit',visitRecorded); }
@@ -99,29 +109,32 @@ function render({preserveScroll=false}={}) {
     const row=document.createElement('article'); row.className=`story${s.dead ? ' dead':''}${read[String(s.id)]?.articleRead ? ' is-read':''}`;
     row.dataset.storyId=s.id; row.dataset.time=s.time; row.dataset.utcDay=utcDay(s.time);
     const discussion=discussionUrl(s.id,preferences.hackerWeb);
-    const metrics=makeLink(discussion,'metrics');
+    const localDiscussion=commentsUrl(s.id);
+    const metrics=document.createElement('div'); metrics.className='metrics';
     if (s.type!=='job') {
-      const comments=document.createElement('span'); comments.className='comments';
+      const comments=makeLink(localDiscussion,'comments');
       const unread=preferences.newComments ? newCommentCount(s,read):0;
       if (unread>0) { const newCount=document.createElement('span'); newCount.className='unread'; newCount.textContent=`${unread} / `; comments.append(newCount); }
       comments.append(document.createTextNode(s.descendants ?? ''));
       comments.dataset.total=s.descendants ?? '';
-      const points=document.createElement('span'); points.className=`points${s.homepage ? ' homepage':''}`; points.textContent=s.score || '-';
+      const points=makeLink(discussion,`points${s.homepage ? ' homepage':''}`); points.textContent=s.score || '-';
       metrics.append(comments,points);
-      metrics.setAttribute('aria-label',`${s.descendants ?? 0} comments${unread ? `, ${unread} new`:''}, ${s.score} points: ${s.title}`);
-      if (discussion) metrics.addEventListener('click',()=>rememberRead(s,true));
+      comments.setAttribute('aria-label',`${s.descendants ?? 0} comments${unread ? `, ${unread} new`:''}: ${s.title}`);
+      points.setAttribute('aria-label',`${s.score} points: ${s.title} · ${preferences.hackerWeb ? 'HackerWeb':'Hacker News'}`);
+      if (discussion) points.addEventListener('click',()=>rememberRead(s,true));
     }
-    const url=articleUrl(s.url,s.id,preferences.hackerWeb);
+    const externalUrl=articleUrl(s.url,s.id,preferences.hackerWeb);
+    const url=externalUrl===discussion ? localDiscussion : externalUrl;
     const article=makeLink(url,'story-link');
     article.title=new Date(s.time*1000).toLocaleString();
     if (s.dead || s.type==='job') {
       const badge=document.createElement('span'); badge.className=s.dead ? 'dead-badge':'job'; badge.textContent=s.dead ? 'DEAD':'JOB'; article.append(badge);
     }
     article.append(document.createTextNode(decodeTitle(s.title)));
-    if (url && url!==discussion) {
+    if (url && url!==localDiscussion) {
       const source=document.createElement('span'); source.className='source'; source.textContent=` (${new URL(url).hostname})`; article.append(source);
     }
-    if (url) article.addEventListener('click',()=>rememberRead(s,url===discussion));
+    if (url && url!==localDiscussion) article.addEventListener('click',()=>rememberRead(s,false));
     row.append(metrics,article); section.append(row);
   }
   $('#entries').replaceChildren(fragment);

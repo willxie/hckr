@@ -14,8 +14,8 @@
       document.documentElement.dataset.theme = ['dark', 'light', 'system'].includes(theme) ? theme : 'system';
     } catch (_) {}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3">
-  <script src="theme.mjs?v=3" type="module"></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <script src="theme.mjs?v=4" type="module"></script>
 </head>
 <body>
 <div class="container">
@@ -51,13 +51,13 @@
       </section>
       <section id="appearance">
         <h2>Your reading preferences</h2>
-        <p>The system theme follows your device’s light/dark setting. You can choose light or dark in settings, or use the header toggle. Settings also control HackerWeb discussion links, opening links in a new tab, showing dead stories, and new-comment highlights. Your choices stay in this browser.</p>
-        <p>External story titles open the original article. Comments and discussion-only titles open <a href="https://hackerweb.app/">HackerWeb</a> by default; disable that preference to use Hacker News.</p>
+        <p>The system theme follows your device’s light/dark setting. You can choose light or dark in settings, or use the header toggle. Settings also control external HackerWeb discussion links, opening links in a new tab, showing dead stories, and new-comment highlights. Your choices stay in this browser.</p>
+        <p>External story titles open the original article. Comments and discussion-only titles open hrnw’s own minimal reader, powered by the official Hacker News API. Points and the reader’s external discussion link open <a href="https://hackerweb.app/">HackerWeb</a> by default; disable that preference to use Hacker News.</p>
       </section>
       <section id="extensions">
         <h2>Browser extensions and comment tracking</h2>
         <p>New-comment highlighting is built into this version. When you open a discussion, its current comment count is remembered. On a later visit or refresh, the comments column shows new / total, with the new count highlighted. Opening an article alone does not mark the discussion as read.</p>
-        <p>HackerWeb provides collapsible comment threads on the discussion page. The original project’s Chrome and Safari extensions are listed on <a href="https://hckrnews.com/about.html#extensions">the original extensions page</a>; their original-domain integration is separate from this site.</p>
+        <p>The reader has collapsible threads, individual comment permalinks, and load-on-request replies for large discussions. Each comment’s link opens that comment and its replies; view full discussion returns to the story. Opening an individual comment does not mark the entire discussion as read. Discussions need an internet connection and offer retries when loading fails. The original project’s Chrome and Safari extensions are listed on <a href="https://hckrnews.com/about.html#extensions">the original extensions page</a>; their original-domain integration is separate from this site.</p>
       </section>
       <section id="contact">
         <h2>Source and feedback</h2>

@@ -4,7 +4,7 @@ A personal Hacker News reading list inspired by [hckr news](https://hckrnews.com
 
 **Site:** https://willxie.github.io/hrnw/
 
-The default theme follows the device's light/dark setting, **top 50%** is initially selected, and discussions open in [HackerWeb](https://hackerweb.app/). Other choices are remembered. External article titles open their source.
+The default theme follows the device's light/dark setting, **top 50%** is initially selected, and comments open in hrnw’s own minimal threaded reader. Other choices are remembered. External article titles open their source.
 
 ## Reading features
 
@@ -13,6 +13,7 @@ The default theme follows the device's light/dark setting, **top 50%** is initia
 - Last Visit marker, local day/time dividers, and compact mobile filters.
 - HackerWeb, new-tab, show-dead, and new-comment settings, with a Done control.
 - New / total comment counts for previously opened discussions.
+- Separate comments/points links, official-API discussion pages, individual comment permalinks, collapsible threads, progressive reply loading, deleted-parent handling, refresh, and retry.
 - Automatic previous-day loading, manual history loading, date selection, and shareable `?date=YYYY-MM-DD` links.
 - System/light/dark themes, optional five-minute auto-refresh, queued new entries and tab notifications, stable reading position, manual refresh, and a saved feed when offline.
 
@@ -20,7 +21,7 @@ The default theme follows the device's light/dark setting, **top 50%** is initia
 
 ```sh
 python3 -m http.server 8000
-node --test tests/core.test.mjs
+node --test tests/*.test.mjs
 python3 -m unittest discover -s scripts -p 'test_*.py'
 ```
 
@@ -38,6 +39,8 @@ The source's appearance date is retained for chronology. Direct live refresh upd
 
 Scheduled runs can be delayed by GitHub. The timestamp indicates freshness. GitHub may suspend schedules after 60 days without repository activity. Source or API outages preserve saved data and provide retry controls. Pushes to `main` and manual workflow runs also deploy.
 
-GitHub Pages uses **GitHub Actions** as its source. No API keys or external hosting are required. A local About page explains the features and links to the original project, extensions, and this repository's issue tracker. Original-domain Chrome/Safari extension integration is separate; comment tracking is built into this site's list and HackerWeb supplies the discussion interface.
+GitHub Pages uses **GitHub Actions** as its source. No API keys or external hosting are required. A local About page explains the features and links to the original project, extensions, and this repository's issue tracker. Original-domain Chrome/Safari extension integration is separate; comment tracking and the discussion reader are built into this site. Points and the discussion page’s external link use HackerWeb by default; the setting switches those links to Hacker News.
+
+Discussion URLs use `comments.html?id=STORY_ID`; individual comment URLs use the same route with `COMMENT_ID`. Comment links resolve their parent story through the official API. Threads preserve the API’s ranked child order, limit concurrent requests to six, and load at most 20 root comments plus 40 replies initially. Further replies load on request. Comment HTML is rebuilt from an allowlist of text formatting and HTTP(S) links. Discussions need an internet connection; API failures offer retries. Opening an individual comment does not mark its entire discussion as read.
 
 This site is independent of hckr news, HackerWeb, and Y Combinator.
