@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-12T09:22:10.303207+00:00",
+  "updatedAt": "2026-10-12T09:24:53.533625+00:00",
   "stories": [
     {
       "id": 50053216,
       "title": "Fable Took My Job",
-      "score": 15,
-      "descendants": 0,
+      "score": 21,
+      "descendants": 2,
       "homepage": true,
       "time": 1791796451,
       "url": "https://cendyne.dev/posts/2026-10-11-fable-took-my-jorb.html"
@@ -13,8 +13,8 @@
     {
       "id": 50044028,
       "title": "Loop Engineering: Optimizing Code Generation and Verification",
-      "score": 9,
-      "descendants": 4,
+      "score": 10,
+      "descendants": 5,
       "homepage": true,
       "time": 1791795394,
       "url": "https://bradleygibbs.dev/posts/loop-optimization/"
@@ -22,7 +22,7 @@
     {
       "id": 50052251,
       "title": "Show HN: PS2 games statically recompiled to WebAssembly",
-      "score": 11,
+      "score": 13,
       "descendants": 0,
       "homepage": true,
       "time": 1791794978,
@@ -32,7 +32,7 @@
       "id": 50052814,
       "title": "Zod 4.6.6 compromised by malware?",
       "score": 113,
-      "descendants": 28,
+      "descendants": 29,
       "homepage": true,
       "time": 1791793372,
       "url": "https://github.com/colinhacks/zod/commit/d821685ea6732436fcdf786a81d076958471e467"
@@ -49,7 +49,7 @@
     {
       "id": 50051583,
       "title": "Research Firm Calls Anthropic's IPO 'Unprecedented Test of Investor Gullibity'",
-      "score": 53,
+      "score": 59,
       "descendants": 15,
       "homepage": true,
       "time": 1791791613,
@@ -58,7 +58,7 @@
     {
       "id": 50052163,
       "title": "Postgres isn't slow, your storage is",
-      "score": 69,
+      "score": 71,
       "descendants": 38,
       "homepage": true,
       "time": 1791790388,
@@ -86,7 +86,7 @@
       "id": 50052156,
       "title": "Attack of the Vibe Coded Photoshop Clones",
       "score": 111,
-      "descendants": 157,
+      "descendants": 159,
       "homepage": false,
       "time": 1791788675,
       "url": "https://www.shokunin.studio/blog/2026/10/9/attack-of-the-vibe-coded-photoshop-clones"
@@ -121,8 +121,8 @@
     {
       "id": 50051530,
       "title": "Will Linux phones become a viable alternative to the Android/iOS duopoly?",
-      "score": 143,
-      "descendants": 145,
+      "score": 145,
+      "descendants": 149,
       "homepage": true,
       "time": 1791784334,
       "url": "https://amosbbatto.wordpress.com/2026/10/05/linux-phones-alternative/"
@@ -131,7 +131,7 @@
       "id": 50051532,
       "title": "Yandex bot traffic down 99% after data center attack",
       "score": 199,
-      "descendants": 89,
+      "descendants": 90,
       "homepage": false,
       "time": 1791782522,
       "url": "https://radar.cloudflare.com/bots/as13238?dateRange=7d#bot-traffic"
@@ -140,7 +140,7 @@
       "id": 50051573,
       "title": "Type-safe HTML templating in Zig",
       "score": 111,
-      "descendants": 46,
+      "descendants": 47,
       "homepage": true,
       "time": 1791781752,
       "url": "https://lalinsky.com/2026/10/11/type-safe-html-templating-in-zig.html"
@@ -166,7 +166,7 @@
     {
       "id": 50034001,
       "title": "No portable way to detect string-to-float conversion errors in standard C",
-      "score": 48,
+      "score": 49,
       "descendants": 40,
       "homepage": true,
       "time": 1791777260,
@@ -184,7 +184,7 @@
     {
       "id": 50034206,
       "title": "Calculus with Julia",
-      "score": 121,
+      "score": 125,
       "descendants": 10,
       "homepage": true,
       "time": 1791773631,
@@ -265,7 +265,7 @@
     {
       "id": 50041252,
       "title": "Programmable pigments: Photochromic nanoparticle inks for rewritable tattoos",
-      "score": 50,
+      "score": 51,
       "descendants": 36,
       "homepage": true,
       "time": 1791766371,
@@ -284,7 +284,7 @@
       "id": 50049508,
       "title": "Local Indexing to reduce tool calling and token usage",
       "score": 77,
-      "descendants": 18,
+      "descendants": 19,
       "homepage": true,
       "time": 1791764855,
       "url": "https://tedhaley.ca/pensieve/"
@@ -346,7 +346,7 @@
     {
       "id": 50049411,
       "title": "Whatever became of holography? (2011)",
-      "score": 128,
+      "score": 129,
       "descendants": 63,
       "homepage": true,
       "time": 1791762670,
@@ -364,7 +364,7 @@
     {
       "id": 50048642,
       "title": "Fingerprints are the new cookies",
-      "score": 360,
+      "score": 364,
       "descendants": 172,
       "homepage": true,
       "time": 1791760500,
@@ -392,7 +392,7 @@
       "id": 50048522,
       "title": "Recursive self-improvement through collective intelligence",
       "score": 114,
-      "descendants": 65,
+      "descendants": 66,
       "homepage": false,
       "time": 1791759388,
       "url": "https://pub.sakana.ai/mass/"
@@ -409,8 +409,8 @@
     {
       "id": 50048312,
       "title": "Passkeys are a trap",
-      "score": 607,
-      "descendants": 360,
+      "score": 609,
+      "descendants": 361,
       "homepage": true,
       "time": 1791756304,
       "url": "https://nonfunctional.substack.com/p/passkeys-are-a-trap-do-not-use-them"
@@ -445,8 +445,8 @@
     {
       "id": 50047422,
       "title": "The gap in shared understanding of LLM capability is widening",
-      "score": 453,
-      "descendants": 648,
+      "score": 454,
+      "descendants": 651,
       "homepage": true,
       "time": 1791753539,
       "url": "https://twitter.com/karpathy/status/2109361546505966046"
@@ -472,7 +472,7 @@
     {
       "id": 50047091,
       "title": "Cartographers of North Korea (2019)",
-      "score": 258,
+      "score": 260,
       "descendants": 46,
       "homepage": true,
       "time": 1791749823,
@@ -500,7 +500,7 @@
       "id": 50021989,
       "title": "I guess I'm using WebP now?",
       "score": 110,
-      "descendants": 120,
+      "descendants": 121,
       "homepage": false,
       "time": 1791748220,
       "url": "https://anderegg.ca/2026/10/08/i-guess-im-using-webp-now"
@@ -553,7 +553,7 @@
     {
       "id": 50044989,
       "title": "Playgrnd – tiny tools for making weird, beautiful things",
-      "score": 61,
+      "score": 62,
       "descendants": 18,
       "homepage": false,
       "time": 1791744042,
@@ -562,7 +562,7 @@
     {
       "id": 50045984,
       "title": "Total Annihilation, rebuilt for modern computers",
-      "score": 502,
+      "score": 503,
       "descendants": 199,
       "homepage": true,
       "time": 1791743552,
@@ -742,7 +742,7 @@
     {
       "id": 50043026,
       "title": "Terence Tao: Math 2.0 [pdf]",
-      "score": 394,
+      "score": 398,
       "descendants": 423,
       "homepage": true,
       "time": 1791727532,
@@ -870,7 +870,7 @@
       "id": 50041682,
       "title": "Nitter: Update Oct 10th seeking funding and legal help",
       "score": 454,
-      "descendants": 236,
+      "descendants": 235,
       "homepage": false,
       "time": 1791715674,
       "url": "https://nitter.net"
