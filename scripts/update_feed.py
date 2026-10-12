@@ -89,7 +89,7 @@ def archive_story(item):
 
 def update():
     request = Request('https://hckrnews.com/', headers={
-        'User-Agent': 'hckr-dark/1.0 (+https://github.com/willxie/hckr)'})
+        'User-Agent': 'hrnw/1.0 (+https://github.com/willxie/hrnw)'})
     with urlopen(request, timeout=30) as response:
         html = response.read().decode('utf-8')
     parser = FeedParser()

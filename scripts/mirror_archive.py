@@ -21,7 +21,7 @@ def fetch_day(day):
     for attempt in range(3):
         try:
             request = Request(f'https://hckrnews.com/data/{day:%Y%m%d}.js', headers={
-                'User-Agent': 'hckr-dark/1.0 (+https://github.com/willxie/hckr)'})
+                'User-Agent': 'hrnw/1.0 (+https://github.com/willxie/hrnw)'})
             with urlopen(request, timeout=30) as response:
                 data = json.loads(response.read())
             if not isinstance(data, list):

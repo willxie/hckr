@@ -2,7 +2,7 @@
 
 A personal Hacker News reading list inspired by [hckr news](https://hckrnews.com/), originally created by Wayne Larsen. Intended for personal use and independently maintained. See the [feature parity audit](FEATURES.md) for the comparison and verification.
 
-**Site:** https://willxie.github.io/hckr/
+**Site:** https://willxie.github.io/hrnw/
 
 The default theme follows the device's light/dark setting, **top 50%** is initially selected, and discussions open in [HackerWeb](https://hackerweb.app/). Other choices are remembered. External article titles open their source.
 
