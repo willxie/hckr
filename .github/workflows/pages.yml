@@ -1,0 +1,45 @@
+name: Update news and deploy GitHub Pages
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update the feed
+        run: python3 scripts/update_feed.py
+      - name: Preserve the news archive
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/news.json
+          if ! git diff --staged --quiet; then
+            git commit -m 'Update news feed [skip ci]'
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - name: Prepare the static site
+        run: |
+          mkdir -p _site/data
+          cp index.html styles.css app.js favicon.svg _site/
+          cp data/news.json _site/data/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
