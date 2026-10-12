@@ -2,6 +2,8 @@
 
 A responsive, independent recreation of [hckrnews.com](https://hckrnews.com/), originally created by Wayne Larsen. Preserves the compact chronological list, comments/points columns, homepage highlights, daily filters, and previous-day browsing. Adds dark, light, and system themes, with preferences saved in the browser.
 
+The default appearance follows the system's light/dark setting, and **top 50%** is initially selected. Comments/points links and HN discussion-only story titles open in [HackerWeb](https://hackerweb.app/); external article titles continue to open their source. Existing browsers adopt these defaults once, then remember subsequent user choices.
+
 **Site:** https://willxie.github.io/hckr/
 
 ## Run locally

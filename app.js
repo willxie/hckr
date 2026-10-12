@@ -5,8 +5,14 @@ const store = {
   set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} }
 };
 const API = 'https://hacker-news.firebaseio.com/v0/';
-const preferences = store.get('hckr-preferences', { autoRefresh: false, newTab: false, filter: 'all' });
-if (!['all', '10', '20', 'half', 'homepage'].includes(preferences.filter)) preferences.filter = 'all';
+const preferences = store.get('hckr-preferences', { autoRefresh: false, newTab: false, filter: 'half', defaultsVersion: 2 });
+// Apply the requested defaults once to browsers that used the first release.
+if (preferences.defaultsVersion !== 2) {
+  preferences.filter = 'half';
+  preferences.defaultsVersion = 2;
+  try { localStorage.setItem('hckr-theme', 'system'); } catch {}
+}
+if (!['all', '10', '20', 'half', 'homepage'].includes(preferences.filter)) preferences.filter = 'half';
 let stories = [], visibleDays = 3, updatedAt = null, busy = false, timer = null;
 const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 function updateThemeControls() {
@@ -60,7 +66,15 @@ function dayKey(timestamp) {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 function safeUrl(value, fallback) {
-  try { const url = new URL(value); if (['http:', 'https:'].includes(url.protocol)) return url.href; } catch {}
+  try {
+    const url = new URL(value);
+    if (!['http:', 'https:'].includes(url.protocol)) return fallback;
+    if (url.hostname === 'news.ycombinator.com' && url.pathname === '/item') {
+      const id = url.searchParams.get('id');
+      if (/^\d+$/.test(id)) return `https://hackerweb.app/#/item/${id}`;
+    }
+    return url.href;
+  } catch {}
   return fallback;
 }
 function link(href, className) {
@@ -114,7 +128,7 @@ function render() {
       }
       previousBlock = block;
       const row = document.createElement('article'); row.className = 'story';
-      const discussion = `https://news.ycombinator.com/item?id=${s.id}`;
+      const discussion = `https://hackerweb.app/#/item/${s.id}`;
       const metrics = link(discussion, 'metrics');
       metrics.setAttribute('aria-label', `${s.descendants} comments, ${s.score} points: ${s.title}`);
       const comments = document.createElement('span'); comments.textContent = s.descendants;

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="system">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,11 @@
   <title>hckr news · dark mode</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <script>
-    try { document.documentElement.dataset.theme = localStorage.getItem('hckr-theme') || 'dark'; } catch (_) {}
+    try {
+      const preferences = JSON.parse(localStorage.getItem('hckr-preferences'));
+      const theme = preferences?.defaultsVersion === 2 ? localStorage.getItem('hckr-theme') : 'system';
+      document.documentElement.dataset.theme = ['dark', 'light', 'system'].includes(theme) ? theme : 'system';
+    } catch (_) {}
   </script>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
@@ -18,7 +22,7 @@
     <header>
       <div class="logo">
         <h1><a href="./">hckr news</a></h1>
-        <p>an unofficial alternative <a href="https://news.ycombinator.com/">hacker news</a> interface.</p>
+        <p>an unofficial alternative <a href="https://hackerweb.app/">hacker news</a> interface.</p>
       </div>
       <nav class="mainnav" aria-label="Main navigation">
         <button id="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode"><svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span id="theme-label">light mode</span></button>
@@ -28,7 +32,7 @@
       </nav>
     </header>
     <section id="settings" class="panel" aria-label="Settings" hidden>
-      <label>Appearance <select id="theme-select"><option value="dark">Dark</option><option value="light">Light</option><option value="system">System</option></select></label>
+      <label>Appearance <select id="theme-select"><option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option></select></label>
       <label><input id="auto-refresh" type="checkbox"> Refresh automatically every 5 minutes</label>
       <label><input id="new-tab" type="checkbox"> Open stories in a new tab</label>
       <p>Your preferences are saved in this browser.</p>
@@ -37,6 +41,7 @@
       <h2>Hacker News, in order.</h2>
       <p>An independent recreation of <a href="https://hckrnews.com/">hckr news</a>, originally created by Wayne Larsen, with dark mode. Stories are listed by when they appeared on the original feed. Orange points mark stories currently on the HN homepage.</p>
       <p>The feed is updated every 30 minutes. Refresh fetches current points and comments from the <a href="https://github.com/HackerNews/API">official Hacker News API</a>. Top filters select the highest-scoring stories for each day, keeping them in chronological order.</p>
+      <p>Appearance follows your system setting by default, and top 50% is selected initially. Discussions open in <a href="https://hackerweb.app/">HackerWeb</a>.</p>
       <p><a href="https://github.com/willxie/hckr">Source on GitHub</a> · <a href="https://hckrnews.com/about.html#extensions">Original browser extensions</a></p>
     </section>
     <div class="refresh-line"><button id="refresh-toggle" type="button">auto-refresh disabled</button><span class="refresh-meta"><span id="updated"></span><button id="refresh" type="button">refresh</button></span></div>
@@ -45,9 +50,9 @@
       <nav class="filters" aria-label="Filter stories">
         <button type="button" data-filter="10" aria-pressed="false">top 10</button>
         <button type="button" data-filter="20" aria-pressed="false">top 20</button>
-        <button type="button" data-filter="half" aria-pressed="false">top 50%</button>
+        <button type="button" data-filter="half" aria-pressed="true" class="active">top 50%</button>
         <button type="button" data-filter="homepage" aria-pressed="false">homepage</button>
-        <button type="button" data-filter="all" aria-pressed="true" class="active">all</button>
+        <button type="button" data-filter="all" aria-pressed="false">all</button>
       </nav>
     </div>
     <div id="status" role="status" aria-live="polite">Loading stories…</div>
