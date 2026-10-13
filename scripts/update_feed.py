@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.request import Request, urlopen
+from url_safety import sanitize_url
 
 ROOT = Path(__file__).resolve().parents[1]
 FEED = ROOT / 'data' / 'news.json'
@@ -28,7 +29,7 @@ class FeedParser(HTMLParser):
         if tag == 'a' and 'hn' in classes:
             self.story['time'] = int(attrs.get('data-date', 0))
         if tag == 'a' and 'link' in classes:
-            self.story['url'] = attrs.get('href', '')
+            self.story['url'] = sanitize_url(attrs.get('href', ''))
             self.capture = 'title'
         if tag == 'span' and 'comments' in classes:
             self.capture = 'descendants'
@@ -79,7 +80,7 @@ def archive_story(item):
             title = 'Removed story' if dead else 'Untitled story'
         return {
             'id': int(story_id) if story_id.isdigit() else story_id,
-            'time': timestamp, 'title': title, 'url': item.get('link') or '',
+            'time': timestamp, 'title': title, 'url': sanitize_url(item.get('link') or ''),
             'score': max(0, int(item.get('points') or 0)),
             'descendants': None if item.get('comments') is None else max(0, int(item['comments'])),
             'homepage': False, 'dead': dead, 'type': item.get('type', 'story'),
@@ -102,6 +103,8 @@ def update():
     cutoff = min(s['time'] for s in parser.stories)
     merged = {s['id']: s for s in parser.stories}
     merged.update({s['id']: {**s, 'homepage': False} for s in old['stories'] if s['time'] >= cutoff and s['id'] not in merged})
+    for story in merged.values():
+        story['url'] = sanitize_url(story.get('url', ''))
     result = {'updatedAt': now.isoformat(), 'stories': sorted(merged.values(), key=lambda s: s['time'], reverse=True)}
     FEED.parent.mkdir(parents=True, exist_ok=True)
     temporary = FEED.with_suffix('.tmp')

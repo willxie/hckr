@@ -7,9 +7,10 @@ Reviewed October 12, 2026. Production: https://willxie.github.io/hrnw/.
 ```sh
 node --test tests/*.test.mjs
 python3 -m unittest discover -s scripts -p 'test_*.py'
+python3 scripts/sanitize_urls.py --check
 ```
 
-The suite contains 22 Node tests and 5 Python tests. It covers original filter parity, chronological archive merging, unread counts, source parsing, API parent traversal, request concurrency and retry, safe links, progressive-loading budgets, refresh state, deployment dependencies, consistent attribution, and readable theme contrast.
+The suite contains 22 Node tests and 11 Python tests. It covers original filter parity, chronological archive merging, unread counts, source parsing, signed URL sanitization, API parent traversal, request concurrency and retry, safe links, progressive-loading budgets, refresh state, deployment dependencies, consistent attribution, and readable theme contrast.
 
 ## Browser verification
 

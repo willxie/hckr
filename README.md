@@ -1,6 +1,6 @@
 # hrnw
 
-A personal Hacker News reading list inspired by [hckr news](https://hckrnews.com/), originally created by Wayne Larsen. Intended for personal use and independently maintained. See the [feature parity audit](FEATURES.md) and [release checks](RELEASE.md) for the comparison and verification.
+A personal Hacker News reading list inspired by [hckr news](https://hckrnews.com/), originally created by Wayne Larsen. Intended for personal use and independently maintained. See the [feature parity audit](FEATURES.md), [release checks](RELEASE.md), and [archived URL safety notes](SECURITY.md) for the comparison and verification.
 
 **Site:** https://willxie.github.io/hrnw/
 
