@@ -1,4 +1,4 @@
-import {DEFAULTS} from './core.mjs?v=4';
+import {DEFAULTS} from './core.mjs?v=5';
 export const store={
   get(key,fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } },
   set(key,value) { try { localStorage.setItem(key,JSON.stringify(value)); } catch {} }
@@ -33,6 +33,15 @@ function setTheme(theme) {
   try { localStorage.setItem('hckr-theme',theme); } catch {}
   updateControls();
 }
+function restoreTheme() {
+  try {
+    const theme=localStorage.getItem('hckr-theme');
+    document.documentElement.dataset.theme=['system','light','dark'].includes(theme) ? theme : 'system';
+    updateControls();
+  } catch { /* Keep the current appearance if storage is unavailable. */ }
+}
+window.addEventListener('pageshow',event=>{ if (event.persisted) restoreTheme(); });
+window.addEventListener('storage',event=>{ if (event.key==='hckr-theme') restoreTheme(); });
 $('#theme-toggle')?.addEventListener('click',()=>{
   const theme=document.documentElement.dataset.theme;
   setTheme(theme==='dark' || (theme==='system' && systemTheme.matches) ? 'light':'dark');

@@ -1,6 +1,6 @@
 # hrnw
 
-A personal Hacker News reading list inspired by [hckr news](https://hckrnews.com/), originally created by Wayne Larsen. Intended for personal use and independently maintained. See the [feature parity audit](FEATURES.md) for the comparison and verification.
+A personal Hacker News reading list inspired by [hckr news](https://hckrnews.com/), originally created by Wayne Larsen. Intended for personal use and independently maintained. See the [feature parity audit](FEATURES.md) and [release checks](RELEASE.md) for the comparison and verification.
 
 **Site:** https://willxie.github.io/hrnw/
 
@@ -41,6 +41,6 @@ Scheduled runs can be delayed by GitHub. The timestamp indicates freshness. GitH
 
 GitHub Pages uses **GitHub Actions** as its source. No API keys or external hosting are required. A local About page explains the features and links to the original project, extensions, and this repository's issue tracker. Original-domain Chrome/Safari extension integration is separate; comment tracking and the discussion reader are built into this site. Points and the discussion page’s external link use HackerWeb by default; the setting switches those links to Hacker News.
 
-Discussion URLs use `comments.html?id=STORY_ID`; individual comment URLs use the same route with `COMMENT_ID`. Comment links resolve their parent story through the official API. Threads preserve the API’s ranked child order, limit concurrent requests to six, and load at most 20 root comments plus 40 replies initially. Further replies load on request. Comment HTML is rebuilt from an allowlist of text formatting and HTTP(S) links. Discussions need an internet connection; API failures offer retries. Opening an individual comment does not mark its entire discussion as read.
+Discussion URLs use `comments.html?id=STORY_ID`; individual comment URLs use the same route with `COMMENT_ID`. Comment links resolve their parent story through the official API. Threads preserve the API’s ranked child order, limit concurrent requests to six, and load at most 20 root comments plus 40 replies initially. Further replies load on request. Comment HTML is rebuilt from an allowlist of text formatting and HTTP(S) links. Discussions need an internet connection; API failures offer retries. Refresh preserves loaded branches, collapsed comments, and reading position. A failed refresh retains the readable discussion and working reply controls. Initial loading failures do not mark a discussion as read. Opening an individual comment does not mark its entire discussion as read.
 
 This site is independent of hckr news, HackerWeb, and Y Combinator.

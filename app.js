@@ -1,5 +1,5 @@
-import {normalize, utcDay, localDay, chronologic, selectStories, discussionUrl, commentsUrl, articleUrl, mergeStories, newCommentCount, decodeTitle} from './core.mjs?v=4';
-import {store, preferences, savePreferences} from './theme.mjs?v=4';
+import {normalize, utcDay, localDay, chronologic, selectStories, discussionUrl, commentsUrl, articleUrl, mergeStories, newCommentCount, decodeTitle} from './core.mjs?v=5';
+import {store, preferences, savePreferences} from './theme.mjs?v=5';
 
 const $=selector=>document.querySelector(selector);
 const API='https://hacker-news.firebaseio.com/v0/';

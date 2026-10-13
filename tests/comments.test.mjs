@@ -48,3 +48,26 @@ test('comment links accept web links and reject active URL schemes',()=>{
   assert.equal(safeLink('/user?id=pg'),'https://news.ycombinator.com/user?id=pg');
   assert.equal(safeLink('https://example.com/a'),'https://example.com/a');
 });
+
+import {canRememberDiscussion,initialReplyCount} from '../discussion-state.mjs';
+test('initial failures and individual permalinks do not mark a discussion as read',()=>{
+  const session={ready:false,story:{id:1},target:{id:1},failures:new Set()};
+  assert.equal(canRememberDiscussion(session),false);
+  session.ready=true; assert.equal(canRememberDiscussion(session),true);
+  session.failures.add(3); assert.equal(canRememberDiscussion(session),false);
+  session.failures.clear(); assert.equal(canRememberDiscussion(session),true);
+  session.target={id:2}; assert.equal(canRememberDiscussion(session),false);
+});
+test('refresh retains previously loaded branches, even when deep or collapsed',()=>{
+  const session={previousPlans:new Map([[2,23]]),budget:40,collapsed:new Set([2])};
+  assert.equal(initialReplyCount(session,2,8,30),23);
+  assert.equal(initialReplyCount(session,2,8,10),10);
+  assert.equal(session.budget,40);
+  assert.equal(initialReplyCount(session,3,0,10),3);
+  assert.equal(session.budget,37);
+  session.collapsed.add(4);
+  assert.equal(initialReplyCount(session,4,0,10),0);
+  assert.equal(initialReplyCount(session,5,2,10),0);
+  session.budget=1; assert.equal(initialReplyCount(session,6,0,10),1);
+  assert.equal(initialReplyCount(session,7,0,10),0);
+});

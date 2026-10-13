@@ -21,7 +21,7 @@ Reference: https://hckrnews.com/ and its public client script, inspected October
 
 ## Added features retained
 
-System/light/dark themes, system theme and top 50% defaults, a theme toggle, official-API count refresh, five-minute optional foreground auto-refresh, stable scroll position during updates, offline saved-feed fallback, direct date navigation and shareable date URLs, automatic GitHub Pages publication, and internal discussion/comment URLs.
+System/light/dark themes, system theme and top 50% defaults, a theme toggle, official-API count refresh, five-minute optional foreground auto-refresh, stable scroll position during updates, offline saved-feed fallback, direct date navigation and shareable date URLs, automatic GitHub Pages publication, and internal discussion/comment URLs, readable light/dark contrast, and explicit personal-use attribution in the subheading on every page.
 
 ## Verification
 
@@ -30,6 +30,6 @@ System/light/dark themes, system theme and top 50% defaults, a theme toggle, off
 - Deterministic browser checks use temporary local fixtures: queued entries, tab notification count, reveal/dismiss controls, new / total comment counts, live-API failure fallback, offline fallback, and history failure/retry.
 - Node regression tests cover score thresholds, UTC grouping, dead filtering, archive merge precedence, unread counts, links, title decoding, parent traversal, API concurrency/caching/retry, ranked replies, and unsafe URL rejection.
 - Python regression tests cover source parsing, dead/job records, archive appearance dates, and preserving saved data on bad source responses.
-- Comments iteration: live API loading, story and individual comment navigation, collapse/expand, mobile and dark theme checks. Deterministic browser fixtures cover reply order, pagination, failed-comment retry, deleted/dead ancestors with surviving replies, empty and missing items, and removing active HTML while retaining formatting.
+- Comments iteration: live API loading, story and individual comment navigation, collapse/expand, mobile and dark theme checks. Deterministic browser fixtures cover reply order, pagination, failed-comment retry, deleted/dead ancestors with surviving replies, empty and missing items, removing active HTML while retaining formatting, failed refresh with usable old controls, unread tracking after an initial outage, and loaded/collapsed state after refresh.
 
 The original site's old Chrome/Safari extensions remain separate third-party artifacts. This project does not claim they integrate with this GitHub Pages domain. The list's read tracking is built in, and discussions use the internal reader. External discussion links use HackerWeb or Hacker News according to the saved preference.

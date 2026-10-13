@@ -41,7 +41,7 @@ jobs:
       - name: Prepare the static site
         run: |
           mkdir -p _site/data
-          cp index.html about.html styles.css app.js core.mjs theme.mjs comments.html comments.js comments-api.mjs comment-html.mjs favicon.svg _site/
+          cp index.html about.html styles.css app.js core.mjs theme.mjs comments.html comments.js comments-api.mjs comment-html.mjs discussion-state.mjs favicon.svg _site/
           cp -R data/. _site/data/
       - uses: actions/upload-pages-artifact@v3
         with:
