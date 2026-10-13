@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-13T13:40:03.375200+00:00",
+  "updatedAt": "2026-10-13T13:47:58.822689+00:00",
   "stories": [
     {
       "id": 50070287,
       "title": "A Visual Intro to Complex Numbers",
-      "score": 6,
+      "score": 7,
       "descendants": 0,
       "homepage": true,
       "time": 1791898397,
@@ -13,7 +13,7 @@
     {
       "id": 50071041,
       "title": "Sqlthon – A lightweight Pythonic layer for SQLite",
-      "score": 6,
+      "score": 7,
       "descendants": 2,
       "homepage": false,
       "time": 1791896881,
@@ -22,8 +22,8 @@
     {
       "id": 50070593,
       "title": "Apple's Minions: A virtual GPU cloud built from idle Apple Silicon Macs",
-      "score": 37,
-      "descendants": 10,
+      "score": 44,
+      "descendants": 12,
       "homepage": true,
       "time": 1791896848,
       "url": "https://machinelearning.apple.com/research/distributed-gpu-cloud"
@@ -31,8 +31,8 @@
     {
       "id": 50071017,
       "title": "Apple HomeView",
-      "score": 84,
-      "descendants": 92,
+      "score": 93,
+      "descendants": 105,
       "homepage": true,
       "time": 1791896684,
       "url": "https://www.apple.com/apple-homeview/"
@@ -40,8 +40,8 @@
     {
       "id": 50068036,
       "title": "Character.ai files for Chapter 11 bankruptcy",
-      "score": 41,
-      "descendants": 13,
+      "score": 43,
+      "descendants": 14,
       "homepage": true,
       "time": 1791895026,
       "url": "https://blog.character.ai/an-update-on-character-ai/"
@@ -49,8 +49,8 @@
     {
       "id": 50070302,
       "title": "Mozilla Introduces Firefox Enterprise",
-      "score": 143,
-      "descendants": 68,
+      "score": 149,
+      "descendants": 72,
       "homepage": true,
       "time": 1791893067,
       "url": "https://www.firefox.com/en-US/enterprise/"
@@ -58,8 +58,8 @@
     {
       "id": 50069942,
       "title": "Character.ai Files for Bankruptcy",
-      "score": 98,
-      "descendants": 53,
+      "score": 100,
+      "descendants": 61,
       "homepage": true,
       "time": 1791891669,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1009802/character-ai-files-for-bankruptcy-disney"
@@ -67,7 +67,7 @@
     {
       "id": 50069971,
       "title": "An hour of audio transcribed in about 13s on MacBook Air",
-      "score": 150,
+      "score": 156,
       "descendants": 45,
       "homepage": true,
       "time": 1791891120,
@@ -85,8 +85,8 @@
     {
       "id": 50069499,
       "title": "11 year old unsoundness bugs found in Rust borrow checker",
-      "score": 308,
-      "descendants": 166,
+      "score": 326,
+      "descendants": 169,
       "homepage": true,
       "time": 1791889110,
       "url": "https://github.com/rust-lang/rust/issues/164250"
@@ -94,8 +94,8 @@
     {
       "id": 50069337,
       "title": "Show HN: Use your OpenAI subscription to create audiobooks",
-      "score": 81,
-      "descendants": 47,
+      "score": 84,
+      "descendants": 49,
       "homepage": true,
       "time": 1791887694,
       "url": "https://pdftomp3.com/connect-ai/"
@@ -113,16 +113,16 @@
       "id": 50069318,
       "title": "AWS Lambda Web Functions",
       "score": 62,
-      "descendants": 39,
-      "homepage": true,
+      "descendants": 43,
+      "homepage": false,
       "time": 1791886854,
       "url": "https://aws.amazon.com/blogs/aws/announcing-aws-lambda-web-functions-for-fast-consistent-web-app-performance-anywhere/"
     },
     {
       "id": 50069329,
       "title": "CFTC Staff Were Told to Retract Analysis of Suspicious Oil Trades",
-      "score": 196,
-      "descendants": 79,
+      "score": 203,
+      "descendants": 85,
       "homepage": true,
       "time": 1791886694,
       "url": "https://www.bloomberg.com/news/features/2026-10-13/cftc-staff-told-to-retract-analysis-of-suspicious-oil-trades-on-iran"
@@ -131,7 +131,7 @@
       "id": 50068508,
       "title": "Crypto thieves sell hardware wallets with secret eSIM",
       "score": 91,
-      "descendants": 63,
+      "descendants": 64,
       "homepage": false,
       "time": 1791885013,
       "url": "https://www.heise.de/en/news/Crypto-thieves-sell-hardware-wallets-with-secret-eSIM-11485188.html"
@@ -140,7 +140,7 @@
       "id": 50068946,
       "title": "Were Software Engineers blue-collar workers all along?",
       "score": 77,
-      "descendants": 163,
+      "descendants": 166,
       "homepage": false,
       "time": 1791883826,
       "url": "https://ptrbrynt.com/posts/were-we-blue-collar-workers-all-along"
@@ -157,8 +157,8 @@
     {
       "id": 50067414,
       "title": "Hittite royal archive found in Turkey",
-      "score": 176,
-      "descendants": 33,
+      "score": 178,
+      "descendants": 35,
       "homepage": true,
       "time": 1791883347,
       "url": "https://www.thehistoryblog.com/archives/77107"
@@ -176,7 +176,7 @@
     {
       "id": 50068666,
       "title": "Teach My Little Sister How to Drive",
-      "score": 14,
+      "score": 15,
       "descendants": 8,
       "homepage": false,
       "time": 1791883221,
@@ -185,7 +185,7 @@
     {
       "id": 50068437,
       "title": "DishwasherBench – Can Frontier Models Stack a Dishwasher?",
-      "score": 71,
+      "score": 72,
       "descendants": 39,
       "homepage": true,
       "time": 1791882383,
@@ -222,7 +222,7 @@
       "id": 50067356,
       "title": "Threat of AI share crash puts world financial stability at risk, says IMF",
       "score": 96,
-      "descendants": 108,
+      "descendants": 110,
       "homepage": false,
       "time": 1791871636,
       "url": "https://www.theguardian.com/business/2026/oct/13/ai-share-crash-risk-global-imf-debt-corrowing-cyber-attacks"
@@ -248,7 +248,7 @@
     {
       "id": 50064840,
       "title": "Show HN: SolidCraft – Open-Source Parametric CAD in Rust (With MCP Support)",
-      "score": 93,
+      "score": 94,
       "descendants": 22,
       "homepage": true,
       "time": 1791866291,
@@ -257,7 +257,7 @@
     {
       "id": 50065713,
       "title": "The Dock on Mac, from OS 10 to macOS 27",
-      "score": 90,
+      "score": 92,
       "descendants": 57,
       "homepage": false,
       "time": 1791864310,
@@ -266,7 +266,7 @@
     {
       "id": 50065692,
       "title": "AI models can provably hide arbitrary capabilities",
-      "score": 241,
+      "score": 242,
       "descendants": 115,
       "homepage": false,
       "time": 1791862511,
@@ -311,7 +311,7 @@
     {
       "id": 50065805,
       "title": "China Overtakes U.S. For First Time as Top Spender on R&D in 2024",
-      "score": 140,
+      "score": 141,
       "descendants": 138,
       "homepage": false,
       "time": 1791859533,
@@ -356,7 +356,7 @@
     {
       "id": 50041866,
       "title": "The baffling intelligence of a single cell (2024)",
-      "score": 336,
+      "score": 338,
       "descendants": 95,
       "homepage": true,
       "time": 1791849337,
@@ -374,8 +374,8 @@
     {
       "id": 50063717,
       "title": "Janas: Run LLMs larger than RAM by streaming experts from SSD",
-      "score": 182,
-      "descendants": 65,
+      "score": 183,
+      "descendants": 66,
       "homepage": true,
       "time": 1791849145,
       "url": "https://github.com/prabanta-dev/janas"
@@ -402,7 +402,7 @@
     {
       "id": 50064536,
       "title": "Blood cells from 80-year-old donor become stem cells with molecular age under 20",
-      "score": 165,
+      "score": 166,
       "descendants": 114,
       "homepage": false,
       "time": 1791848725,
@@ -411,7 +411,7 @@
     {
       "id": 50063365,
       "title": "Intel D270 GPU AI Accelerator–Up to 480 GB LPDDR5X",
-      "score": 266,
+      "score": 267,
       "descendants": 137,
       "homepage": true,
       "time": 1791848370,
@@ -430,7 +430,7 @@
       "id": 50063831,
       "title": "RJ Mitte has died",
       "score": 203,
-      "descendants": 62,
+      "descendants": 63,
       "homepage": false,
       "time": 1791844442,
       "url": "https://news.sky.com/story/breaking-bad-star-rj-mitte-dies-aged-34-13598332"
@@ -438,7 +438,7 @@
     {
       "id": 50063138,
       "title": "Who is vfmaddrnd231pd?",
-      "score": 230,
+      "score": 231,
       "descendants": 21,
       "homepage": true,
       "time": 1791843527,
@@ -447,7 +447,7 @@
     {
       "id": 50063042,
       "title": "Show HN: Brickbrag – A multiplayer brick-building world in the browser",
-      "score": 68,
+      "score": 69,
       "descendants": 40,
       "homepage": false,
       "time": 1791842640,
@@ -465,8 +465,8 @@
     {
       "id": 50063427,
       "title": "AI is a tool and using it well takes skill",
-      "score": 481,
-      "descendants": 390,
+      "score": 484,
+      "descendants": 392,
       "homepage": true,
       "time": 1791841787,
       "url": "https://yyhh.org/blog/2026/10/ai-is-a-tool/"
@@ -492,7 +492,7 @@
     {
       "id": 50063417,
       "title": "Phreak.ing – Internet Phone Switch",
-      "score": 141,
+      "score": 143,
       "descendants": 34,
       "homepage": false,
       "time": 1791841429,
@@ -538,7 +538,7 @@
     {
       "id": 50061859,
       "title": "Writing a Demoscene Intro for the ZX Spectrum",
-      "score": 158,
+      "score": 159,
       "descendants": 28,
       "homepage": true,
       "time": 1791835683,
@@ -548,7 +548,7 @@
       "id": 50061603,
       "title": "AI models may be capable of self-replicating without access to a datacenter",
       "score": 91,
-      "descendants": 102,
+      "descendants": 103,
       "homepage": false,
       "time": 1791834586,
       "url": "https://www.anthropic.com/research/self-replicating-ai"
@@ -620,7 +620,7 @@
       "id": 50060296,
       "title": "My Reddit AMA on the Law of Web Scraping",
       "score": 104,
-      "descendants": 20,
+      "descendants": 21,
       "homepage": false,
       "time": 1791829306,
       "url": "https://blog.ericgoldman.org/archives/2026/10/my-reddit-ama-on-the-law-of-web-scraping.htm"
@@ -646,7 +646,7 @@
     {
       "id": 50059523,
       "title": "AI coding agents generate more code, but not more software",
-      "score": 344,
+      "score": 346,
       "descendants": 289,
       "homepage": false,
       "time": 1791826652,
@@ -655,8 +655,8 @@
     {
       "id": 50059204,
       "title": "Thinking will become a hobby",
-      "score": 309,
-      "descendants": 423,
+      "score": 311,
+      "descendants": 425,
       "homepage": false,
       "time": 1791826324,
       "url": "https://www.spinellis.gr/blog/20261008/?li261008"
@@ -682,7 +682,7 @@
     {
       "id": 50057668,
       "title": "Kevin Kelly's 2016 AI Predictions, 10 Years Later",
-      "score": 200,
+      "score": 201,
       "descendants": 78,
       "homepage": false,
       "time": 1791825141,
@@ -709,8 +709,8 @@
     {
       "id": 50058528,
       "title": "A Modern Web App in C",
-      "score": 626,
-      "descendants": 274,
+      "score": 629,
+      "descendants": 275,
       "homepage": true,
       "time": 1791823166,
       "url": "https://prophitt.me/writing/a-modern-web-app-in-c"
@@ -737,7 +737,7 @@
       "id": 50058507,
       "title": "GLM-Legal",
       "score": 613,
-      "descendants": 338,
+      "descendants": 340,
       "homepage": true,
       "time": 1791821841,
       "url": "https://z.ai/blog/glm-legal"
@@ -828,7 +828,7 @@
       "title": "Solar panels that plug into your wall",
       "score": 223,
       "descendants": 238,
-      "homepage": false,
+      "homepage": true,
       "time": 1791816268,
       "url": "https://www.nationalgeographic.com/environment/article/balcony-plug-in-solar-panels-renewable-energy"
     },
@@ -881,8 +881,8 @@
     {
       "id": 50055304,
       "title": "Hackers activate automatic defrosting in supermarket fridges across Europe",
-      "score": 784,
-      "descendants": 900,
+      "score": 786,
+      "descendants": 905,
       "homepage": true,
       "time": 1791807746,
       "url": "https://www.tomshardware.com/tech-industry/cyber-security/unprecedented-cyberattack-cripples-supermarket-fridges-across-europe-as-hackers-activate-automatic-defrosting-delivery-and-store-prices-also-impacted-by-incident"
@@ -891,7 +891,7 @@
       "id": 50055220,
       "title": "Citroen revives the 2CV for an electric age",
       "score": 375,
-      "descendants": 417,
+      "descendants": 420,
       "homepage": true,
       "time": 1791807513,
       "url": "https://www.bbc.com/news/articles/c620r33plgppo"
@@ -899,7 +899,7 @@
     {
       "id": 50036287,
       "title": "The Making Of Super Mario 64 – full Giles Goddard interview (2001)",
-      "score": 264,
+      "score": 265,
       "descendants": 100,
       "homepage": false,
       "time": 1791806263,
@@ -909,7 +909,7 @@
       "id": 50054751,
       "title": "QGIS enacts moratorium on AI contributions",
       "score": 378,
-      "descendants": 405,
+      "descendants": 406,
       "homepage": false,
       "time": 1791804324,
       "url": "https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387"
@@ -918,7 +918,7 @@
       "id": 50037711,
       "title": "Secret of Orange Cats Revealed After 60-Year Search",
       "score": 270,
-      "descendants": 182,
+      "descendants": 183,
       "homepage": false,
       "time": 1791802616,
       "url": "https://www.sciencealert.com/secret-of-orange-cats-finally-revealed-after-60-year-search"
@@ -980,7 +980,7 @@
     {
       "id": 50052251,
       "title": "Show HN: PS2 games statically recompiled to WebAssembly",
-      "score": 300,
+      "score": 301,
       "descendants": 156,
       "homepage": false,
       "time": 1791794978,
@@ -1134,7 +1134,7 @@
       "id": 50050762,
       "title": "Sorry we made you grind LeetCode",
       "score": 41,
-      "descendants": 44,
+      "descendants": 45,
       "homepage": false,
       "time": 1791774300,
       "url": "https://www.hackerrank.com/writing/why-were-sorry"
@@ -1160,7 +1160,7 @@
     {
       "id": 50049872,
       "title": "Doory – Open-Source Canva",
-      "score": 220,
+      "score": 221,
       "descendants": 78,
       "homepage": false,
       "time": 1791772159,
