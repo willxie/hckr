@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T05:30:01.603309+00:00",
+  "updatedAt": "2026-10-13T05:32:18.274503+00:00",
   "stories": [
     {
       "id": 50064840,
@@ -13,7 +13,7 @@
     {
       "id": 50065713,
       "title": "The Dock on Mac, from OS 10 to macOS 27",
-      "score": 27,
+      "score": 30,
       "descendants": 15,
       "homepage": true,
       "time": 1791864310,
@@ -22,7 +22,7 @@
     {
       "id": 50065692,
       "title": "AI Models Can Provably Hide Arbitrary Capabilities",
-      "score": 68,
+      "score": 70,
       "descendants": 34,
       "homepage": true,
       "time": 1791862511,
@@ -31,7 +31,7 @@
     {
       "id": 50065932,
       "title": "A look at OpenAI’s math that’s claimed computes faster Fourier transforms",
-      "score": 78,
+      "score": 79,
       "descendants": 44,
       "homepage": true,
       "time": 1791862051,
@@ -49,7 +49,7 @@
     {
       "id": 50065553,
       "title": "Strengthening our defenses against distillation attacks",
-      "score": 32,
+      "score": 33,
       "descendants": 72,
       "homepage": false,
       "time": 1791859628,
@@ -68,7 +68,7 @@
       "id": 50065805,
       "title": "China Overtakes U.S. For First Time as Top Spender on R&D in 2024",
       "score": 107,
-      "descendants": 92,
+      "descendants": 94,
       "homepage": true,
       "time": 1791859533,
       "url": "https://japannews.yomiuri.co.jp/science-nature/science/20260908-347742/"
@@ -112,7 +112,7 @@
     {
       "id": 50041866,
       "title": "The baffling intelligence of a single cell (2024)",
-      "score": 172,
+      "score": 173,
       "descendants": 21,
       "homepage": true,
       "time": 1791849337,
@@ -130,7 +130,7 @@
     {
       "id": 50063717,
       "title": "Janas: Run LLMs larger than RAM by streaming experts from SSD",
-      "score": 80,
+      "score": 83,
       "descendants": 29,
       "homepage": true,
       "time": 1791849145,
@@ -167,7 +167,7 @@
     {
       "id": 50063365,
       "title": "Intel D270 GPU AI Accelerator–Up to 480 GB LPDDR5X",
-      "score": 134,
+      "score": 138,
       "descendants": 59,
       "homepage": true,
       "time": 1791848370,
@@ -185,7 +185,7 @@
     {
       "id": 50063831,
       "title": "RJ Mitte has died",
-      "score": 179,
+      "score": 180,
       "descendants": 54,
       "homepage": false,
       "time": 1791844442,
@@ -194,7 +194,7 @@
     {
       "id": 50063138,
       "title": "Who is vfmaddrnd231pd?",
-      "score": 155,
+      "score": 156,
       "descendants": 16,
       "homepage": true,
       "time": 1791843527,
@@ -221,8 +221,8 @@
     {
       "id": 50063427,
       "title": "AI is a tool and using it well takes skill",
-      "score": 303,
-      "descendants": 248,
+      "score": 304,
+      "descendants": 249,
       "homepage": true,
       "time": 1791841787,
       "url": "https://yyhh.org/blog/2026/10/ai-is-a-tool/"
@@ -257,7 +257,7 @@
     {
       "id": 50061791,
       "title": "Making big downloads resumable in Firefox",
-      "score": 142,
+      "score": 143,
       "descendants": 48,
       "homepage": true,
       "time": 1791841040,
@@ -267,7 +267,7 @@
       "id": 50062237,
       "title": "Epic Games tells employees to use AI to get Disney game done",
       "score": 81,
-      "descendants": 65,
+      "descendants": 66,
       "homepage": false,
       "time": 1791838078,
       "url": "https://www.avclub.com/epic-games-disney-ai-delay"
@@ -295,7 +295,7 @@
       "id": 50061859,
       "title": "Writing a Demoscene Intro for the ZX Spectrum",
       "score": 96,
-      "descendants": 10,
+      "descendants": 11,
       "homepage": true,
       "time": 1791835683,
       "url": "https://www.markround.com/blog/2026/zx-spectrum-intro"
@@ -312,7 +312,7 @@
     {
       "id": 50060269,
       "title": "'AI' Is Not a Tool by Rich Hickey",
-      "score": 246,
+      "score": 247,
       "descendants": 122,
       "homepage": false,
       "time": 1791834025,
@@ -340,7 +340,7 @@
       "id": 50060694,
       "title": "Codex CLI installs a persistent, self-updating background daemon by default",
       "score": 509,
-      "descendants": 260,
+      "descendants": 261,
       "homepage": true,
       "time": 1791830326,
       "url": "https://github.com/openai/codex/issues/48195"
@@ -438,7 +438,7 @@
     {
       "id": 50057668,
       "title": "Kevin Kelly's 2016 AI Predictions, 10 Years Later",
-      "score": 167,
+      "score": 168,
       "descendants": 60,
       "homepage": true,
       "time": 1791825141,
@@ -447,7 +447,7 @@
     {
       "id": 50059115,
       "title": "Muse Wonder",
-      "score": 576,
+      "score": 577,
       "descendants": 319,
       "homepage": true,
       "time": 1791824414,
@@ -465,8 +465,8 @@
     {
       "id": 50058528,
       "title": "A Modern Web App in C",
-      "score": 474,
-      "descendants": 188,
+      "score": 475,
+      "descendants": 190,
       "homepage": true,
       "time": 1791823166,
       "url": "https://prophitt.me/writing/a-modern-web-app-in-c"
@@ -483,7 +483,7 @@
     {
       "id": 50055593,
       "title": "Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver",
-      "score": 307,
+      "score": 308,
       "descendants": 87,
       "homepage": true,
       "time": 1791822466,
@@ -555,7 +555,7 @@
     {
       "id": 50055409,
       "title": "(Post-Quantum) Cryptographic Right Answers",
-      "score": 88,
+      "score": 89,
       "descendants": 29,
       "homepage": false,
       "time": 1791817734,
@@ -582,8 +582,8 @@
     {
       "id": 50056822,
       "title": "Solar panels that plug into your wall",
-      "score": 158,
-      "descendants": 142,
+      "score": 159,
+      "descendants": 143,
       "homepage": true,
       "time": 1791816268,
       "url": "https://www.nationalgeographic.com/environment/article/balcony-plug-in-solar-panels-renewable-energy"
@@ -637,8 +637,8 @@
     {
       "id": 50055304,
       "title": "Hackers activate automatic defrosting in supermarket fridges across Europe",
-      "score": 544,
-      "descendants": 717,
+      "score": 547,
+      "descendants": 719,
       "homepage": true,
       "time": 1791807746,
       "url": "https://www.tomshardware.com/tech-industry/cyber-security/unprecedented-cyberattack-cripples-supermarket-fridges-across-europe-as-hackers-activate-automatic-defrosting-delivery-and-store-prices-also-impacted-by-incident"
@@ -646,7 +646,7 @@
     {
       "id": 50055220,
       "title": "Citroen revives the 2CV for an electric age",
-      "score": 296,
+      "score": 297,
       "descendants": 334,
       "homepage": true,
       "time": 1791807513,
@@ -943,7 +943,7 @@
     {
       "id": 50039608,
       "title": "Vectorized CLZ and CTZ",
-      "score": 64,
+      "score": 65,
       "descendants": 5,
       "homepage": false,
       "time": 1791770020,
