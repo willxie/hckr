@@ -1,8 +1,8 @@
-import {commentsUrl,discussionUrl,articleUrl,decodeTitle} from './core.mjs?v=5';
-import {store,preferences} from './theme.mjs?v=5';
-import {createClient,resolveThread,childIds,itemId} from './comments-api.mjs?v=5';
-import {commentHtml} from './comment-html.mjs?v=5';
-import {canRememberDiscussion,initialReplyCount} from './discussion-state.mjs?v=5';
+import {commentsUrl,discussionUrl,articleUrl,decodeTitle} from './core.mjs?v=6';
+import {store,preferences} from './theme.mjs?v=6';
+import {createClient,resolveThread,childIds,itemId} from './comments-api.mjs?v=6';
+import {commentHtml} from './comment-html.mjs?v=6';
+import {canRememberDiscussion,initialReplyCount} from './discussion-state.mjs?v=6';
 
 const $=selector=>document.querySelector(selector);
 const id=itemId(new URLSearchParams(location.search).get('id'));
@@ -146,7 +146,8 @@ function renderStory(session) {
   if (story.by) meta.append(document.createTextNode(' · by '),link(`https://news.ycombinator.com/user?id=${encodeURIComponent(story.by)}`,story.by));
   meta.append(document.createTextNode(' · '),timestamp(story));
   const externalLinks=element('p','discussion-external');
-  externalLinks.append(link(discussion,preferences.hackerWeb ? 'open in HackerWeb':'open on Hacker News'),document.createTextNode(' · '),link(discussionUrl(story.id,false),'reply on Hacker News'));
+  if (preferences.hackerWeb) externalLinks.append(link(discussion,'open in HackerWeb'),document.createTextNode(' · '));
+  externalLinks.append(link(discussionUrl(story.id,false),'reply on Hacker News'));
   summary.replaceChildren(heading,meta,externalLinks);
   if (story.deleted || story.dead) summary.append(element('p','comment-removed',story.deleted ? '[deleted]':'[dead]'));
   else if (story.text) summary.append(body(story.text));

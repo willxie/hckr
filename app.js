@@ -1,5 +1,5 @@
-import {normalize, utcDay, localDay, chronologic, selectStories, discussionUrl, commentsUrl, articleUrl, mergeStories, newCommentCount, decodeTitle} from './core.mjs?v=5';
-import {store, preferences, savePreferences} from './theme.mjs?v=5';
+import {normalize, utcDay, localDay, chronologic, selectStories, commentsUrl, storyUrl, mergeStories, newCommentCount, decodeTitle} from './core.mjs?v=6';
+import {store, preferences, savePreferences} from './theme.mjs?v=6';
 
 const $=selector=>document.querySelector(selector);
 const API='https://hacker-news.firebaseio.com/v0/';
@@ -108,7 +108,6 @@ function render({preserveScroll=false}={}) {
     }
     const row=document.createElement('article'); row.className=`story${s.dead ? ' dead':''}${read[String(s.id)]?.articleRead ? ' is-read':''}`;
     row.dataset.storyId=s.id; row.dataset.time=s.time; row.dataset.utcDay=utcDay(s.time);
-    const discussion=discussionUrl(s.id,preferences.hackerWeb);
     const localDiscussion=commentsUrl(s.id);
     const metrics=document.createElement('div'); metrics.className='metrics';
     if (s.type!=='job') {
@@ -117,24 +116,22 @@ function render({preserveScroll=false}={}) {
       if (unread>0) { const newCount=document.createElement('span'); newCount.className='unread'; newCount.textContent=`${unread} / `; comments.append(newCount); }
       comments.append(document.createTextNode(s.descendants ?? ''));
       comments.dataset.total=s.descendants ?? '';
-      const points=makeLink(discussion,`points${s.homepage ? ' homepage':''}`); points.textContent=s.score || '-';
+      const points=makeLink(localDiscussion,`points${s.homepage ? ' homepage':''}`); points.textContent=s.score || '-';
       metrics.append(comments,points);
       comments.setAttribute('aria-label',`${s.descendants ?? 0} comments${unread ? `, ${unread} new`:''}: ${s.title}`);
-      points.setAttribute('aria-label',`${s.score} points: ${s.title} · ${preferences.hackerWeb ? 'HackerWeb':'Hacker News'}`);
-      if (discussion) points.addEventListener('click',()=>rememberRead(s,true));
+      points.setAttribute('aria-label',`${s.score} points: ${s.title} · comments`);
     }
-    const externalUrl=articleUrl(s.url,s.id,preferences.hackerWeb);
-    const url=externalUrl===discussion ? localDiscussion : externalUrl;
+    const url=storyUrl(s.url,s.id);
     const article=makeLink(url,'story-link');
     article.title=new Date(s.time*1000).toLocaleString();
     if (s.dead || s.type==='job') {
       const badge=document.createElement('span'); badge.className=s.dead ? 'dead-badge':'job'; badge.textContent=s.dead ? 'DEAD':'JOB'; article.append(badge);
     }
     article.append(document.createTextNode(decodeTitle(s.title)));
-    if (url && url!==localDiscussion) {
+    if (url && /^https?:/.test(url)) {
       const source=document.createElement('span'); source.className='source'; source.textContent=` (${new URL(url).hostname})`; article.append(source);
     }
-    if (url && url!==localDiscussion) article.addEventListener('click',()=>rememberRead(s,false));
+    if (url && /^https?:/.test(url)) article.addEventListener('click',()=>rememberRead(s,false));
     row.append(metrics,article); section.append(row);
   }
   $('#entries').replaceChildren(fragment);

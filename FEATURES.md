@@ -10,7 +10,7 @@ Reference: https://hckrnews.com/ and its public client script, inspected October
 | Local day dividers and six-hour markers | Preserved; numeric and homepage filters hide time markers |
 | Last Visit line, dismissed by clicking | Restored, with a persisted visit timestamp |
 | Show dead setting, enabled by default | Restored; removed entries remain available with a DEAD badge |
-| HackerWeb preference and new-tab preference | Preserved for points and external discussion links; comments now open the internal reader |
+| HackerWeb preference and new-tab preference | Comments and points open the internal reader; HackerWeb is an optional external link, disabled by default |
 | Settings Done control and saved preferences | Restored |
 | Previous-day loading at the bottom | Restored through mirrored daily source files, with a manual control and retry |
 | Compact phone filter menu | Restored with keyboard-accessible controls |
@@ -21,7 +21,7 @@ Reference: https://hckrnews.com/ and its public client script, inspected October
 
 ## Added features retained
 
-System/light/dark themes, system theme and top 50% defaults, a theme toggle, official-API count refresh, five-minute optional foreground auto-refresh, stable scroll position during updates, offline saved-feed fallback, direct date navigation and shareable date URLs, automatic GitHub Pages publication, and internal discussion/comment URLs, readable light/dark contrast, and explicit personal-use attribution in the subheading on every page.
+System/light/dark themes, system theme and top 50% defaults, a theme toggle, official-API count refresh, five-minute optional foreground auto-refresh, stable scroll position during updates, offline saved-feed fallback, direct date navigation and shareable date URLs, automatic GitHub Pages publication, and internal discussion/comment URLs, readable light/dark body text and the original light-mode orange, and explicit personal-use attribution in the subheading on every page.
 
 ## Verification
 
@@ -32,4 +32,4 @@ System/light/dark themes, system theme and top 50% defaults, a theme toggle, off
 - Python regression tests cover source parsing, dead/job records, archive appearance dates, and preserving saved data on bad source responses.
 - Comments iteration: live API loading, story and individual comment navigation, collapse/expand, mobile and dark theme checks. Deterministic browser fixtures cover reply order, pagination, failed-comment retry, deleted/dead ancestors with surviving replies, empty and missing items, removing active HTML while retaining formatting, failed refresh with usable old controls, unread tracking after an initial outage, and loaded/collapsed state after refresh.
 
-The original site's old Chrome/Safari extensions remain separate third-party artifacts. This project does not claim they integrate with this GitHub Pages domain. The list's read tracking is built in, and discussions use the internal reader. External discussion links use HackerWeb or Hacker News according to the saved preference.
+The original site's old Chrome/Safari extensions remain separate third-party artifacts. This project does not claim they integrate with this GitHub Pages domain. The list's read tracking is built in, and discussions use the internal reader. The reader has a Hacker News reply link and an optional HackerWeb link according to the saved preference.

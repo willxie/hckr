@@ -1,10 +1,10 @@
-import {DEFAULTS} from './core.mjs?v=5';
+import {restorePreferences} from './core.mjs?v=6';
 export const store={
   get(key,fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } },
   set(key,value) { try { localStorage.setItem(key,JSON.stringify(value)); } catch {} }
 };
 const saved=store.get('hckr-preferences',{});
-export const preferences={...DEFAULTS,...(saved && typeof saved==='object' && !Array.isArray(saved) ? saved : {})};
+export const preferences=restorePreferences(saved);
 if (saved?.defaultsVersion!==2) {
   preferences.filter='half'; preferences.defaultsVersion=2;
   document.documentElement.dataset.theme='system';

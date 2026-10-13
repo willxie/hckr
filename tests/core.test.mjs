@@ -32,11 +32,12 @@ test('dead records and legacy job IDs survive normalization',()=>{
   assert.equal(discussionUrl(list[1].id),null);
 });
 test('HackerWeb preference changes discussions and HN titles, retaining article URLs',()=>{
-  assert.equal(discussionUrl(42),'https://hackerweb.app/#/item/42');
+  assert.equal(discussionUrl(42),'https://news.ycombinator.com/item?id=42');
+  assert.equal(discussionUrl(42,true),'https://hackerweb.app/#/item/42');
   assert.equal(discussionUrl(42,false),'https://news.ycombinator.com/item?id=42');
-  assert.equal(articleUrl('https://news.ycombinator.com/item?id=42',42),'https://hackerweb.app/#/item/42');
+  assert.equal(articleUrl('https://news.ycombinator.com/item?id=42',42),'https://news.ycombinator.com/item?id=42');
   assert.equal(articleUrl('https://example.com/post',42),'https://example.com/post');
-  assert.equal(articleUrl('javascript:alert(1)',42),'https://hackerweb.app/#/item/42');
+  assert.equal(articleUrl('javascript:alert(1)',42),'https://news.ycombinator.com/item?id=42');
 });
 test('fresh records win over archives and retain chronological order',()=>{
   assert.deepEqual(mergeStories([story(1,10,2)],[story(1,20,2),story(2,30,4)]).map(s=>[s.id,s.score]),[[2,30],[1,20]]);
@@ -59,4 +60,22 @@ test('all five filters match the original browser on a captured feed',async()=>{
     const actual=selectStories(original.stories,{filter:sample.filter,showDead:true}).map(s=>String(s.id)).sort();
     assert.deepEqual(actual,sample.ids.map(String).sort(),sample.filter);
   }
+});
+
+import {DEFAULTS,restorePreferences,storyUrl} from '../core.mjs';
+test('internal reader defaults replace the old HackerWeb default without resetting other choices',()=>{
+  assert.equal(DEFAULTS.hackerWeb,false);
+  const saved={hackerWeb:true,filter:'20',newTab:true,autoRefresh:true,defaultsVersion:2};
+  const restored=restorePreferences(saved);
+  assert.equal(restored.hackerWeb,false);
+  assert.equal(restored.filter,'20');
+  assert.equal(restored.newTab,true);
+  assert.equal(restored.autoRefresh,true);
+  assert.equal(restorePreferences({...restored,hackerWeb:true}).hackerWeb,true);
+});
+test('discussion-only stories and HN item links always open the internal reader',()=>{
+  assert.equal(storyUrl(null,42),'comments.html?id=42');
+  assert.equal(storyUrl('https://news.ycombinator.com/item?id=43',42),'comments.html?id=43');
+  assert.equal(storyUrl('javascript:alert(1)',42),'comments.html?id=42');
+  assert.equal(storyUrl('https://example.com/article',42),'https://example.com/article');
 });

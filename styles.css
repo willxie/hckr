@@ -10,7 +10,7 @@
   --border:#34383a;
   --visited:#92989b;
   --pill-text:#fff;
-  --pill-bg:#b84b12;
+  --pill-bg:#f47b36;
   --left:170px;
   --gap:25px
 }
@@ -20,7 +20,8 @@
   --text:#333;
   --muted:#6f6f6f;
   --faint:#757575;
-  --accent:#b84b12;
+  --accent:#ff6600;
+  --pill-bg:#ff6600;
   --hover:#f6f7ee;
   --panel:#fafaf7;
   --border:#ddd;
@@ -33,7 +34,8 @@
     --text:#333;
     --muted:#6f6f6f;
     --faint:#757575;
-    --accent:#b84b12;
+    --accent:#ff6600;
+    --pill-bg:#ff6600;
     --hover:#f6f7ee;
     --panel:#fafaf7;
     --border:#ddd;

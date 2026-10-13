@@ -1,4 +1,12 @@
-export const DEFAULTS = {autoRefresh:false, newTab:false, hackerWeb:true, showDead:true, newComments:true, filter:'half', defaultsVersion:2};
+export const DEFAULTS = {autoRefresh:false, newTab:false, hackerWeb:false, showDead:true, newComments:true, filter:'half', defaultsVersion:2, discussionDefaultsVersion:1};
+export function restorePreferences(saved) {
+  const preferences={...DEFAULTS,...(saved && typeof saved==='object' && !Array.isArray(saved) ? saved : {})};
+  if (saved?.discussionDefaultsVersion!==1) {
+    preferences.hackerWeb=false;
+    preferences.discussionDefaultsVersion=1;
+  }
+  return preferences;
+}
 export function validId(id) { return /^\d+$/.test(String(id)) || /^[a-f0-9]{40}$/.test(String(id)); }
 export function normalize(input) {
   if (!Array.isArray(input)) return [];
@@ -41,14 +49,14 @@ export function selectStories(stories, preferences) {
   }
   return selected.sort(chronologic);
 }
-export function discussionUrl(id, hackerWeb=true) {
+export function discussionUrl(id, hackerWeb=false) {
   if (!/^\d+$/.test(String(id))) return null;
   return hackerWeb ? `https://hackerweb.app/#/item/${id}` : `https://news.ycombinator.com/item?id=${id}`;
 }
 export function commentsUrl(id) {
   return /^\d+$/.test(String(id)) && Number.isSafeInteger(Number(id)) && Number(id)>0 ? `comments.html?id=${id}` : null;
 }
-export function articleUrl(value, id, hackerWeb=true) {
+export function articleUrl(value, id, hackerWeb=false) {
   const fallback=discussionUrl(id,hackerWeb);
   try {
     const url=new URL(value);
@@ -56,6 +64,13 @@ export function articleUrl(value, id, hackerWeb=true) {
     if (url.hostname==='news.ycombinator.com' && url.pathname==='/item') return discussionUrl(url.searchParams.get('id') || id,hackerWeb);
     return url.href;
   } catch { return fallback; }
+}
+export function storyUrl(value,id) {
+  const url=articleUrl(value,id,false);
+  if (!url) return commentsUrl(id);
+  const parsed=new URL(url);
+  return parsed.hostname==='news.ycombinator.com' && parsed.pathname==='/item'
+    ? commentsUrl(parsed.searchParams.get('id') || id) : url;
 }
 export function mergeStories(old, fresh) {
   const merged=new Map(old.map(s=>[String(s.id),s]));

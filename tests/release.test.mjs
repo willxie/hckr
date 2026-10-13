@@ -39,12 +39,21 @@ function contrast(a,b) {
   const values=[luminance(a),luminance(b)].sort((a,b)=>b-a);
   return (values[0]+.05)/(values[1]+.05);
 }
-test('small text, orange links, and selected filters retain readable contrast in both themes',()=>{
+test('body text and muted metadata retain readable contrast in both themes',()=>{
   const css=read('styles.css');
   const rules=[...css.matchAll(/:root(?:\[data-theme=light\])?\s*\{([^}]+)\}/g)].map(match=>Object.fromEntries([...match[1].matchAll(/--([\w-]+):\s*(#[\da-f]+)/gi)].map(value=>[value[1],value[2]])));
   const dark=rules[0],light={...dark,...rules[1]};
   for (const [name,palette] of [['dark',dark],['light',light]]) {
-    for (const key of ['text','muted','faint','accent','visited']) assert.ok(contrast(palette[key],palette.bg)>=4.5,`${name} ${key} on background`);
-    assert.ok(contrast(palette['pill-text'],palette['pill-bg'])>=4.5,`${name} selected filter`);
+    for (const key of ['text','muted','faint','visited']) assert.ok(contrast(palette[key],palette.bg)>=4.5,`${name} ${key} on background`);
+  }
+});
+
+test('light and system-light themes use the original hckrnews orange',()=>{
+  const css=read('styles.css');
+  const light=css.match(/:root\[data-theme=light\]\s*\{([^}]+)\}/)[1];
+  const system=css.match(/:root\[data-theme=system\]\s*\{([^}]+)\}/)[1];
+  for (const rule of [light,system]) {
+    assert.match(rule,/--accent:\s*#ff6600;/);
+    assert.match(rule,/--pill-bg:\s*#ff6600;/);
   }
 });

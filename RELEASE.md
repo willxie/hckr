@@ -1,6 +1,6 @@
 # Release checks
 
-Reviewed October 12, 2026. Production: https://willxie.github.io/hrnw/.
+Reviewed October 13, 2026. Production: https://willxie.github.io/hrnw/.
 
 ## Automated validation
 
@@ -10,7 +10,7 @@ python3 -m unittest discover -s scripts -p 'test_*.py'
 python3 scripts/sanitize_urls.py --check
 ```
 
-The suite contains 22 Node tests and 11 Python tests. It covers original filter parity, chronological archive merging, unread counts, source parsing, signed URL sanitization, API parent traversal, request concurrency and retry, safe links, progressive-loading budgets, refresh state, deployment dependencies, consistent attribution, and readable theme contrast.
+The suite contains 25 Node tests and 11 Python tests. It covers original filter parity, chronological archive merging, unread counts, source parsing, signed URL sanitization, API parent traversal, request concurrency and retry, safe links, progressive-loading budgets, refresh state, deployment dependencies, consistent attribution, and readable body-text contrast and the original orange.
 
 ## Browser verification
 
@@ -18,7 +18,7 @@ Verified in the Codex in-app browser at desktop size and a 320-pixel phone viewp
 
 - News, About, and discussion pages display the linked hckrnews.com credit and personal-use subheading.
 - The default filter remains top 50%; the system theme remains available alongside saved light/dark choices. Mobile filter controls work without horizontal overflow.
-- Comment counts open the internal reader; points retain the external HackerWeb/Hacker News preference. Article links retain their source.
+- Comment counts and points open the internal reader. HackerWeb is an optional external reader link, disabled by default, with a one-time migration for existing browsers. Article links retain their source.
 - Story and individual comment links resolve live API data. Deleted/dead ancestors retain replies. Collapsing, expanding, loading more, and per-comment retry work.
 - Refresh preserves loaded branches, collapsed comments, and reading position. A failed refresh keeps the existing discussion and reply controls usable.
 - Initial comment outages preserve unread status; successful loading records the discussion visit. Individual comment visits do not mark the entire story as read.
