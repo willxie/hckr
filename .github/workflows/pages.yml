@@ -14,12 +14,12 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
       - name: Verify feed logic
         run: |
           node --test tests/*.test.mjs
@@ -37,15 +37,15 @@ jobs:
             git commit -m 'Update news feed [skip ci]'
             git push
           fi
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6.0.0
       - name: Prepare the static site
         run: |
           mkdir -p _site/data
           cp index.html about.html styles.css app.js core.mjs theme.mjs comments.html comments.js comments-api.mjs comment-html.mjs discussion-state.mjs favicon.svg _site/
           cp -R data/. _site/data/
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: _site
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1

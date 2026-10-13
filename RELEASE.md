@@ -28,4 +28,4 @@ Failure scenarios use a temporary local fixture server; production uses the offi
 
 ## Publishing
 
-Pushes to main run the checks, update the feed, package all referenced assets, and deploy to GitHub Pages. No build step or runtime dependencies are required. Verify the completed deployment and the production subheading/comments route after publishing.
+Pushes to main run the checks, update the feed, package all referenced assets, and deploy to GitHub Pages. The runner is pinned to Ubuntu 24.04; official checkout and Pages actions use current release versions with the supported action runtime. No build step or site runtime dependencies are required. Verify the completed deployment and the production subheading/comments route after publishing.
